@@ -24,7 +24,7 @@ module Helpers
   end
   
   def post_link(post)
-    link_to(h(post.title), post.url)
+    link_to(h(post.title), "#{post.url}.html")
   end
   
   def tag_link(name, link_name=nil)

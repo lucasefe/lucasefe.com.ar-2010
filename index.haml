@@ -1,9 +1,8 @@
 ---
 layout: default
-title: The Pug Automatic
+title: Lucas Efe's Blog
 ---
 #home
-
   - site.collated_posts.sort.reverse.each do |year,months|
     .year
       %h2.year= year
@@ -15,3 +14,4 @@ title: The Pug Automatic
               %li
                 %strong.date= "%02d" % day
                 = post_link(post)
+                

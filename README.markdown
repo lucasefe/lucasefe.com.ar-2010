@@ -1,6 +1,6 @@
-# The Pug Automatic
+# Lucas Efe
 
-This directory contains data for my blog, [The Pug Automatic](http://henrik.nyh.se).
+This directory contains data for my blog, [Lucas Efe](http://henrik.nyh.se).
 
 It's automatically transformed by my mutated version of [Jekyll](http://github.com/henrik/jekyll) (Hyde? Mr. Haml?) into a static site. Jekyll was created by [Tom Preston-Werner](http://tom.preston-werner.com/).
 

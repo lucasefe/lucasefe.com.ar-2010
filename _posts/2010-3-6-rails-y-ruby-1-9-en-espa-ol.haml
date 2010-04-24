@@ -1,0 +1,14 @@
+--- 
+layout: post
+title: Rails 2.3.x y Ruby 1.9, en español
+---
+%p Hace unos meses pasamos una de las aplicaciones Rails (2.3.5) con las que estabamos trabajando hace tiempo a Ruby 1.9. Recuerdo que fue un quilombo importante. Ayer, arrancamos otra. Por no haber anotado el paso-a-paso terminamos perdiendo 2 horas con una huevada. Para evitarme otra p&eacute;rdida de tiempo, paso a describir el proceso que nos ha resultado mejor.
+
+%p La cuesti&oacute;n es que Rails, por default, no labura con UTF-8, así que hay decírselo, por todos lados. Ojo, trabaja con caracteres españoles, pero no c&oacute;mo especifica la 1.9. 
+
+%h2 Encoding en cada archivo Ruby.
+
+%p Hay que agregarle #encoding: utf-8 al principio de cada archivo. Si, es un plomo, pero con esta rake task es un poco m&aacute;s piloteable. La estructura inicial del script sali&oacute; de annotate_models. 
+
+%p Ejecutar: rake encoding:update_files # una  papa
+

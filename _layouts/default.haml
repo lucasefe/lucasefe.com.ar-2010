@@ -4,12 +4,9 @@
 
   %head
     %meta{ :"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8' }
-    %title= page.title.match(/The Pug Automatic$/) ? page.title : "#{page.title} – The Pug Automatic"
+    %title= page.title.match(/Vera$/) ? page.title : "#{page.title} – Vera"
     %meta{ :name => 'author', :content => 'Henrik Nyh (http://henrik.nyh.se)' }
-    %link{ :href => FEED_URL, :rel => "alternate", :title => "The Pug Automatic", :type => "application/atom+xml" }
-    
-    %link{ :rel => "openid.server",   :href => "http://openid.nyh.se/henrik" }
-    %link{ :rel => "openid.delegate", :href => "http://openid.nyh.se/henrik" }
+    %link{ :href => FEED_URL, :rel => "alternate", :title => "Lucas Efe", :type => "application/atom+xml" }
     
     %link{ :rel => "stylesheet", :type => 'text/css', :href => '/css/syntax.css' }
     %link{ :rel => "stylesheet", :type => 'text/css', :href => '/css/screen.css' }
@@ -25,21 +22,21 @@
       #sidebar
 
         #title
-          %p= link_to('<img src="/images/pug.png" alt="" />', "/")
-          %p= link_to("The Pug Automatic", "/")
+          %p= link_to('<img src="http://www.gravatar.com/avatar/1156b6ec7075396cf55fcc7425b79b37?s=48&d=http%3A%2F%2Fgithub.com%2Fimages%2Fgravatars%2Fgravatar-48.png" alt="" />', "/")
+          %p= link_to("Lucas Efe", "/")
 
         %p
-          == A blog by #{link_to('Henrik Nyh', '/about')} mostly on #{tag_link 'Ruby'}, #{tag_link 'Rails', 'Ruby on Rails'} and #{tag_link 'OS X'} automation.
+          == Un blog acerca de #{link_to('Lucas Florio', '/about')}.
           = link_to('Subscribe by RSS', FEED_URL), '.'
-          
+            
         %form#search{ :method => 'get', :action => 'http://www.google.com/search' }
           %input.text{ :type => 'text', :name => 'q' }
-          %input{ :type => 'hidden', :name => 'sitesearch', :value => 'henrik.nyh.se' }
+          %input{ :type => 'hidden', :name => 'sitesearch', :value => 'lucasefe.com.ar' }
           %input.button{ :type => 'submit', :value => 'Google' }
 
         #github
-          %a{ :href => 'http://github.com/henrik' }
-            %img{ :src => '/images/github.png', :alt => 'github.com/henrik' }
+          %a{ :href => 'http://github.com/lucasefe' }
+            %img{ :src => 'http://github.com/images/modules/header/logov3.png', :alt => 'github.com/lucasefe' }
             
         #tweets
           
@@ -50,7 +47,7 @@
         = link_to('Jekyll', 'http://github.com/henrik/jekyll')
         and
         = link_to('Disqus', 'http://disqus.com'), '.'
-        = link_to('View source', 'http://github.com/henrik/henrik.nyh.se'), '.'
+        = link_to('View source', 'http://github.com/lucasefe/lucasefe.com.ar'), '.'
 
       :javascript
       
@@ -58,20 +55,9 @@
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
         </script>
-        <script type="text/javascript">
-        try {
-        var pageTracker = _gat._getTracker("UA-8429899-1");
-        pageTracker._trackPageview();
-        } catch(err) {}
 
-        // Disqus
-        (function() {
-          var links = document.getElementsByTagName('a');
-          var query = '?';
-          for(var i = 0; i < links.length; i++) {
-            if(links[i].href.indexOf('#disqus_thread') >= 0) {
-              query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-            }
-          }
-          document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/pug/get_num_replies.js' + query + '"></' + 'script>');
-        })();
+        <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-83541-8");
+        pageTracker._trackPageview();
+        
+      

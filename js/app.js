@@ -2,11 +2,11 @@ var Blog = {
   
   getTwitter: function() {
     $("#tweets").getTwitter({
-      userName: "henrik",
+      userName: "lucasefe",
       numTweets: 3,
       slideIn: true,
       showHeading: true,
-      headingText: 'Recently on <a href="http://twitter.com/henrik">Twitter</a>:',
+      headingText: 'Hace poquito en <a href="http://twitter.com/lucasefe">Twitter</a>:',
       showProfileLink: false,
       rejectRepliesOutOf: 20
     });
