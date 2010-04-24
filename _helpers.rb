@@ -1,4 +1,5 @@
 require 'cgi'
+require 'haml-coderay'
 require 'lib/slugalizer'
 
 FEED_URL = "http://feeds.feedburner.com/ThePugAutomatic"
@@ -26,7 +27,6 @@ module Helpers
   def post_link(post)
     link_to(h(post.title), "#{post.url}.html")
   end
-  
   def tag_link(name, link_name=nil)
     link_name ||= name
     link_to(h(name), "/tag##{slug(link_name)}")
@@ -62,5 +62,4 @@ module Helpers
       '</ol>'
     ].join  
   end
-
 end
