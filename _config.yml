@@ -1,6 +1,4 @@
 markdown: rdiscount
-pygments: true
-pygments_cache: /Users/henrik/Library/Caches/Pygments
 permalink: /:year/:month/:title.html
 multiviews: true
 sass: true
