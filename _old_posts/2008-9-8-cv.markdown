@@ -32,7 +32,7 @@ h2. What I did before
 
 h3. Virtualizar Development Buenos Aires, 2006-Early 2008
 
-I co-owned a development firm with Pedro Visintín. We worked on projects built with Ruby &amp; Rails, using also mongrel, capistrano, rmagick, rspec, resource controller, git/svn and many more Open Source components.
+I co-owned a development firm with Pedro Visint&iacute;n. We worked on projects built with Ruby &amp; Rails, using also mongrel, capistrano, rmagick, rspec, resource controller, git/svn and many more Open Source components.
 	
 BackOffice (Network Provisioning System &amp; CRM)
 		
@@ -52,7 +52,7 @@ Datacenter Specialist at iplan networks Buenos Aires, 2004 I worked building, co
 
 h2. Education
 
-* Instituto Tecnológico ORT Nro. 2 &oacute; Computer analyst - 2006.
+* Instituto Tecnol&oacute;gico ORT Nro. 2 &oacute; Computer analyst - 2006.
 * Nacional of San Isidro -  Bachiller.
 
 h2. Languages

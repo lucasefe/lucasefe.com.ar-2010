@@ -25,7 +25,7 @@ module Helpers
   end
   
   def post_link(post)
-    link_to(h(post.title), "#{post.url}.html")
+    link_to(post.title, "#{post.url}.html")
   end
   def tag_link(name, link_name=nil)
     link_name ||= name
@@ -40,7 +40,6 @@ module Helpers
   def slug(text)
     Slugalizer.slugalize(text)
   end
-
   def tag_cloud(tags, from=1, unto=6)
     return @@tag_cloud if defined?(@@tag_cloud)
     
