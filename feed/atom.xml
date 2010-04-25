@@ -4,22 +4,22 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Lucas Efe</title>
- <link href="http://henrik.nyh.se/atom.xml" rel="self"/>
- <link href="http://henrik.nyh.se/"/>
+ <title>Lucas Efe's Blog</title>
+ <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
+ <link href="http://www.lucasefe.com.ar/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://henrik.nyh.se/</id>
+ <id>http://www.lucasefe.com.ar/</id>
  <author>
-   <name>Henrik Nyh</name>
-   <email>henrik@nyh.se</email>
+   <name>Lucas Efe</name>
+   <email>lucasefek@gmail.com</email>
  </author>
 
  {% for post in site.posts limit: 15 %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://henrik.nyh.se{{ post.url }}"/>
+   <link href="http://www.lucasefe.com.ar{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://henrik.nyh.se{{ post.id }}</id>
+   <id>http://www.lucasefe.com.ar{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}

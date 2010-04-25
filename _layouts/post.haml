@@ -4,7 +4,7 @@ layout: default
 #post
   =header page.title
   %p.subtitle
-    = page.date.strftime("%m/%d/%Y"), '.'
+    = page.date.strftime("%d/%m/%Y"), '.'
     Tags: 
     = tag_links(page.tags), "."
 
@@ -28,7 +28,7 @@ layout: default
     %h3 Related posts
     - site.related_posts.each do |rp|
       %p
-        %strong= rp.date.strftime("%B %d, %Y")
+        %strong= rp.date.strftime("%d/%m/%Y")
         = post_link(rp)
   #disqus_thread
   :javascript

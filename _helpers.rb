@@ -2,7 +2,7 @@ require 'cgi'
 require 'haml-coderay'
 require 'lib/slugalizer'
 
-FEED_URL = "http://feeds.feedburner.com/ThePugAutomatic"
+FEED_URL = "http://www.lucasefe.com.ar/feed/atom.xml"
 
 module Helpers
 
