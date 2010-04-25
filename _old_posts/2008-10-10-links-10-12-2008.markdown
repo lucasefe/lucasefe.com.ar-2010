@@ -2,7 +2,7 @@
 layout: post
 title: Links 10/12/2008
 ---
-h2. El Pingüino no se va
+h2. El Ping&uuml;ino no se va
 
 * "Linux como Time Machine Server":http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
 

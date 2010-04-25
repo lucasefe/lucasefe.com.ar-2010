@@ -4,9 +4,8 @@ layout: default
 #post
   =header page.title
   %p.subtitle
-    Written
-    = page.date.strftime("%B %d, %Y at %H:%M %Z"), '.'
-    Tagged
+    = page.date.strftime("%m/%d/%Y"), '.'
+    Tags: 
     = tag_links(page.tags), "."
 
     -# TextMate edit link. JS sets the link text if a cookie is present: see js/app.js.
