@@ -33,6 +33,8 @@ layout: default
         = post_link(rp)
   #disqus_thread
   :javascript
+      var disqus_developer = location.host.match(/\.dev$|^localhost/) ? 1 : 0;
+  :javascript
     (function() {
      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
      dsq.src = 'http://lucasefe.disqus.com/embed.js';
