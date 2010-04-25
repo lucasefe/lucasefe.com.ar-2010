@@ -98,11 +98,11 @@ if __FILE__ == $0
     end
       
     def test_single_whitescape
-      assert_slug("smorgasbord-e-gott", "smörgåsbord é gott")
+      assert_slug("smorgasbord-e-gott", "smörgåsbord &eacute; gott")
     end
     
     def test_surrounding_whitescape
-      assert_slug("smorgasbord-e-gott", " smörgåsbord é gott ")
+      assert_slug("smorgasbord-e-gott", " smörgåsbord &eacute; gott ")
     end
     
     def test_excessive_whitescape

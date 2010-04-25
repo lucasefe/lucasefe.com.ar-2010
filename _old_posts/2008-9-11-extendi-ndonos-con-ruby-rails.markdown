@@ -2,10 +2,10 @@
 layout: post
 title: Extendi&eacute;ndonos con Ruby y Rails
 ---
-Hoy me agarré la cabeza mal. 
+Hoy me agarr&eacute; la cabeza mal. 
 
-Estaba haciendo  un plugin para engancharle un comportamiento al plugin acts_as_state_machine (AASM) y me mandé una genial. 
-El código en cuestión era el siguiente. Si nos fijamos entre la línea 18 a la 20 extiendo el comportamiento de AASM. Todo parece muy lindo. 
+Estaba haciendo  un plugin para engancharle un comportamiento al plugin acts_as_state_machine (AASM) y me mand&eacute; una genial. 
+El c&oacute;digo en cuesti&oacute;n era el siguiente. Si nos fijamos entre la l&iacute;nea 18 a la 20 extiendo el comportamiento de AASM. Todo parece muy lindo. 
 
 <filter:code lang="ruby">module Driven
   module Monitoreable
@@ -42,7 +42,7 @@ El código en cuestión era el siguiente. Si nos fijamos entre la línea 18 a la 20
  ......
 </filter:code>
 
-Los módulos/métodos que le  incluyo son los siguientes:
+Los m&oacute;dulos/m&eacute;todos que le  incluyo son los siguientes:
 
 <filter:code lang="ruby">module AasmExtension
     module StateTransition
@@ -79,13 +79,13 @@ end
 
 *Noten que estoy usando alias_method_chain...*
 
-Para hacerla corta, cuando usaba este mixin en un solo modelo de rails, funcionaba todo bien, pero en cuanto eran 2 o más los que lo implementaban, comenzaba a recibir Stack Level Too Deep extensions por todos lados. 
+Para hacerla corta, cuando usaba este mixin en un solo modelo de rails, funcionaba todo bien, pero en cuanto eran 2 o m&aacute;s los que lo implementaban, comenzaba a recibir Stack Level Too Deep extensions por todos lados. 
 
-Tardé un rato, pero me di cuenta. Estaba incluyendo Driven::AasmExtension más de una vez en AASM, entonces terminaba llamandose una y otra vez a si mismo, y nunca llegaba a ejecutar la acción real. Recursividad que no se resuelve. Muy despistado...
+Tard&eacute; un rato, pero me di cuenta. Estaba incluyendo Driven::AasmExtension m&aacute;s de una vez en AASM, entonces terminaba llamandose una y otra vez a si mismo, y nunca llegaba a ejecutar la acci&oacute;n real. Recursividad que no se resuelve. Muy despistado...
 
-Cómo lo solucioné?
+C&oacute;mo lo solucion&eacute;?
 
-Asegurandome que no se incluya más de una vez a Driven::AasmExtension. 
+Asegurandome que no se incluya m&aacute;s de una vez a Driven::AasmExtension. 
 
 <filter:code lang="ruby">def acts_as_state_machine_monitoreable(o = {})
         options = { :reraise => true }.merge(o)
@@ -113,4 +113,4 @@ Asegurandome que no se incluya más de una vez a Driven::AasmExtension.
       end
 </filter:code>
 
-Bueh, que la experiencia me sirva, y ojalá que no le pase nadie, porque me volví loco para darme cuenta.
+Bueh, que la experiencia me sirva, y ojal&aacute; que no le pase nadie, porque me volv&iacute; loco para darme cuenta.

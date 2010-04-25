@@ -1,10 +1,10 @@
 --- 
 layout: post
-title: Rails 2.3.x y Ruby 1.9, en español
+title: Rails 2.3.x y Ruby 1.9, en espa&ntilde;ol
 ---
 %p Hace unos meses pasamos una de las aplicaciones Rails (2.3.5) con las que estabamos trabajando hace tiempo a Ruby 1.9. Recuerdo que fue un quilombo importante. Ayer, arrancamos otra. Por no haber anotado el paso-a-paso terminamos perdiendo 2 horas con una huevada. Para evitarme otra p&eacute;rdida de tiempo, paso a describir el proceso que nos ha resultado mejor.
 
-%p La cuesti&oacute;n es que Rails, por default, no labura con UTF-8, así que hay decírselo, por todos lados. Ojo, trabaja con caracteres españoles, pero no c&oacute;mo especifica la 1.9. 
+%p La cuesti&oacute;n es que Rails, por default, no labura con UTF-8, as&iacute; que hay dec&iacute;rselo, por todos lados. Ojo, trabaja con caracteres espa&ntilde;oles, pero no c&oacute;mo especifica la 1.9. 
 
 %h2 Encoding en cada archivo Ruby.
 
@@ -147,14 +147,14 @@ title: Rails 2.3.x y Ruby 1.9, en español
 %p Hay que cambiarle el default a Rails para que abra en UTF8 el log. 
 
 :coderay
-  #!ruby
+  #!bash
   RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
   Encoding.default_external = 'UTF-8' if defined? __ENCODING__
   require File.join(File.dirname(__FILE__), 'boot')
 
 %h2 RVM, Passenger...
 
-%p Por último, y solo si usan RVM y Passenger, y bajo algunas circunstancias, tiene que agregarle al archivo $HOME/.rvm/bin/passenger_ruby la menci&oacute;n directa del encoding de la siguiente forma:
+%p Por &uacute;ltimo, y solo si usan RVM y Passenger, y bajo algunas circunstancias, tiene que agregarle al archivo $HOME/.rvm/bin/passenger_ruby la menci&oacute;n directa del encoding de la siguiente forma:
 
 %code
   LC_TYPE=en_US.UTF-8; 
@@ -169,7 +169,7 @@ title: Rails 2.3.x y Ruby 1.9, en español
 %ul
   %li
     = link_to  "Fixes para Ruby 1.9, Rails 2.3.x e Unicode", "http://akitaonrails.com/2010/01/04/fixes-para-ruby-1-9-rails-2-3-x-e-unicode" 
-    Hay que leer un poco de portugués. 
+    Hay que leer un poco de portugu&eacute;s. 
   %li=link_to "Understanding M17n", "http://blog.grayproductions.net/articles/understanding_m17n"
   %li Ruby Programming 3rd. edition
   %li=link_to "RVM", "http://rvm.beginrescueend.com/"

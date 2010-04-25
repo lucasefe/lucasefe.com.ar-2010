@@ -27,14 +27,14 @@ So, here's te code:
         create.before { object.creador = current_usuario if object.respond_to?(:creador) }
         
         create.wants.html { redirect_to_return_path_or collection_path }
-        create.flash { "#{object.class.to_s.underscore.humanize} ha sido agregado con éxito. Puedes accederlo haciendo click #{@template.link_to('aquí', object_path)}."}
+        create.flash { "#{object.class.to_s.underscore.humanize} ha sido agregado con &eacute;xito. Puedes accederlo haciendo click #{@template.link_to('aqu&iacute;', object_path)}."}
         create.failure.flash { "Ought!"}
         
         update.wants.html { redirect_to_return_path_or collection_path }
-        update.flash { "#{object.class.to_s.underscore.humanize} ha sido modificado con éxito. Puedes accederlo haciendo click #{@template.link_to('aquí', object_path)}."}
+        update.flash { "#{object.class.to_s.underscore.humanize} ha sido modificado con &eacute;xito. Puedes accederlo haciendo click #{@template.link_to('aqu&iacute;', object_path)}."}
         update.failure.flash { "Ought!"}
         
-        destroy.flash { "#{object.class.to_s.underscore.humanize} ha sido eliminado con éxito!"}
+        destroy.flash { "#{object.class.to_s.underscore.humanize} ha sido eliminado con &eacute;xito!"}
       end
     end
   end

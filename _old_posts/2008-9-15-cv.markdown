@@ -6,9 +6,9 @@ h2. Profile
 
 I am a developer mostly focused on dynamic languages like Ruby, but with knowledge of PHP, C# &amp; Java. I also have a big foundation in networking due to my first jobs into the IT area.
 
-I am a self-taught, pragmatic person, very much into the craft of building applications. I really enjoy what I do, and I wouldn’t trade it for nothing.
+I am a self-taught, pragmatic person, very much into the craft of building applications. I really enjoy what I do, and I wouldn&iacute;t trade it for nothing.
 
-If I am in a position of choosing a development methodology, I’ll choose to follow the Agile model.
+If I am in a position of choosing a development methodology, I&iacute;ll choose to follow the Agile model.
 
 h2. Experience
 
@@ -43,7 +43,7 @@ Datacenter Specialist at iplan networks Buenos Aires, 2004 I worked building, co
 
 h2. Education
 
-* Instituto Tecnológico ORT Nro. 2 — Computer analyst - 2006.
+* Instituto Tecnológico ORT Nro. 2 &oacute; Computer analyst - 2006.
 * Nacional of San Isidro -  Bachiller.
 
 h2. Languages

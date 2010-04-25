@@ -8,10 +8,10 @@ h2. El Pingüino no se va
 
 h2. Ruby Voodoo
 
-James Edward Gray II es el autor de todos estos link. Es un flaco que sabe un montócon de Ruby, y realmente, al leerlo se te abre la cabeza. 
+James Edward Gray II es el autor de todos estos link. Es un flaco que sabe un mont&oacute;con de Ruby, y realmente, al leerlo se te abre la cabeza. 
 
 * "All About Struct":http://blog.grayproductions.net/articles/all_about_struct
 * "Dual Interface Modules":http://blog.grayproductions.net/articles/dual_interface_modules
 * "Readable Booleans":http://blog.grayproductions.net/articles/readable_booleans
 * "DSL Block Styles":http://blog.grayproductions.net/articles/dsl_block_styles
-* "Todos los demás articulos":http://blog.grayproductions.net/categories/ruby_voodoo
+* "Todos los dem&aacute;s articulos":http://blog.grayproductions.net/categories/ruby_voodoo

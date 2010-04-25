@@ -4,11 +4,11 @@ title: Canito dice que no sabe c&oacute;mo es
 ---
 Yo tampoco. 
 
-Será de Dios?
+Ser&aacute; de Dios?
 
-Será posible?
+Ser&aacute; posible?
 
-Cera, señor?
+Cera, se&oacute;or?
 
 En serio?
 
