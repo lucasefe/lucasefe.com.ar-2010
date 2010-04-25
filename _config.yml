@@ -3,5 +3,6 @@ permalink: /:year/:month/:day/:title.html
 multiviews: true
 sass: true
 haml: true
+lsi: true
 post_defaults:
   layout: post
