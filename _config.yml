@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:year/:month/:title.html
+permalink: /:year/:month/:day/:title.html
 multiviews: true
 sass: true
 haml: true

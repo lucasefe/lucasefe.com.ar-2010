@@ -5,7 +5,7 @@
   %head
     %meta{ :"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8' }
     %title= page.title.match(/Vera$/) ? page.title : "#{page.title} – Vera"
-    %meta{ :name => 'author', :content => 'Henrik Nyh (http://henrik.nyh.se)' }
+    %meta{ :name => 'author', :content => 'Lucas Florio (http://www.lucasefe.com.ar)' }
     %link{ :href => FEED_URL, :rel => "alternate", :title => "Lucas Efe", :type => "application/atom+xml" }
     
     %link{ :rel => "stylesheet", :type => 'text/css', :href => '/css/syntax.css' }
@@ -26,7 +26,7 @@
           %p= link_to("Lucas Efe", "/")
 
         %p
-          == Un blog acerca de #{link_to('Lucas Florio', '/about')}.
+          == Un blog acerca de #{link_to('Lucas Florio', '/about.html')}.
           = link_to('Subscribe by RSS', FEED_URL), '.'
             
         %form#search{ :method => 'get', :action => 'http://www.google.com/search' }
