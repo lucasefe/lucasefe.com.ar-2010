@@ -4,13 +4,65 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-04-25T21:33:52-03:00</updated>
+ <updated>2010-04-26T11:43:53-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Base Generators</title>
+   <link href="http://www.lucasefe.com.ar/2010/04/26/base-generators"/>
+   <updated>2010-04-26T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/04/26/base-generators</id>
+   <content type="html">&lt;p&gt;
+  Cada vez que comienzo con un proyecto me encuentro con las mismas tareas b&amp;aacute;sicas. Poner jQuery, configurar las gemas b&amp;aacute;sicas, poner un layout como la gente (que no sea esa cosa fea que trae rails por default). Adem&amp;aacute;s me encuentro tambi&amp;eacute;n con el problema de los requeriimientos b&amp;aacute;sicos de cada ABM:
+&lt;/p&gt;
+&lt;em&gt;"Ehhh, yo quiero poder buscar por nombre, y que est&amp;eacute; ordenado por documento..."&lt;/em&gt;
+&lt;p&gt;Adem&amp;aacute;s es un cl&amp;aacute;sico que tengo que agregar un mont&amp;oacute;n de helpers que uso siempre.&lt;/p&gt;
+&lt;p&gt;Y ni hablar de la paginaci&amp;oacute;n...&lt;/p&gt;
+&lt;p&gt;As&amp;iacute; que desde hace un tiempo, cre&amp;eacute; el Base Generators que no es otra cosa que un conjunto de generadores para Rails que uso para no tener que pensar en eso cada vez y poder concentrarme en las cosas lindas que me gusta hacer (lo que eso sea).&lt;/p&gt;
+&lt;h2&gt;Instalaci&amp;oacute;n&lt;/h2&gt;
+&lt;p&gt;
+  El c&amp;oacute;digo est&amp;aacute; ac&amp;aacute;:
+  &lt;code&gt;http://github.com/lucasefe/base-generators&lt;/code&gt;
+  pero se puede instalar con un simple:
+  &lt;code&gt;gem install base-generators&lt;/code&gt;
+&lt;/p&gt;
+&lt;h2&gt;&amp;iquest;Qu&amp;eacute; provee?&lt;/h2&gt;
+&lt;p&gt;Una imagen vale m&amp;aacute;s que mil palabras:&lt;/p&gt;
+&lt;a class="thickbox" href="/images/base-generators-01.png"&gt;
+  &lt;img src="/images/base-generators-01-thumb.png" /&gt;
+&lt;/a&gt;
+&lt;p&gt;Por ahora provee dos generadores.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h2&gt;base_bootstrap&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;code&gt;ruby script/generate base_bootstrap&lt;/code&gt;
+    &lt;/p&gt;
+    &lt;p&gt;Genera los archivos requeridos por cada scaffold que luego generemos. Se incluyen algunos partials (que van en app/views/common) y m&amp;aacute;s un par de helpers. La idea es generarlo una sola vez, cuando acabamos de crear la aplicaci&amp;oacute;n.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2&gt;base_scaffold&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;code&gt;ruby script/generate base_scaffold Product title:string price:decimal&lt;/code&gt;
+    &lt;/p&gt;
+    &lt;p&gt;Genera un ABM que usa:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://github.com/josevalim/inherited_resources"&gt;inherited resources&lt;/a&gt; (no tiene sentido escribir una y mil veces los mismos m&amp;eacute;todos en cada controller).&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/mislav/will-paginate"&gt;WillPaginate&lt;/a&gt; para la paginaci&amp;oacute;n&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/justinfrench/formtastic"&gt;Formtastic&lt;/a&gt; (para los formularios de creaci&amp;oacute;n, edici&amp;oacute;n y b&amp;uacute;squeda)&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/nex3/haml"&gt;Haml&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/josevalim/show_for"&gt;ShowFor&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En fin, una gema simple, que uso mucho y quiz&amp;aacute;s le pueda servir a otros tambi&amp;eacute;n. La idea no era inventar algo, sino evitar repetir las mismas tareas una y otra  vez.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Going static</title>
@@ -336,24 +388,6 @@ sudo gem install remarkable_rails
   &lt;li&gt;Navegar (Garage version)&lt;/li&gt;
 &lt;/ul&gt;
 Poco, muy poco...
-</content>
- </entry>
- 
- <entry>
-   <title>LocosXRails Post Resolutions</title>
-   <link href="http://www.lucasefe.com.ar/2009/04/05/locosxrails-resolutions"/>
-   <updated>2009-04-05T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/04/05/locosxrails-resolutions</id>
-   <content type="html">&lt;p&gt;Justo dos d&amp;iacute;as antes de la conferencia LocosXRails (LXR) me hab&amp;iacute;a puesto a ver algunos videos de la &amp;uacute;ltima RubyConf, entre los que que se inclu&amp;iacute;a el ya cl&amp;aacute;sico TATFT, de &lt;a href="http://smartic.us/"&gt;Brian Liles&lt;/a&gt;. Bastante motivante para ser sincero (Ring 1)&lt;/p&gt;
-&lt;p&gt;La primera charla del evento LXR fue la de Obie Fernandez, y se trat&amp;oacute; del Hashrocket Way. Fue bastante intersante aunque creo que un poco irreal para lo que es Argentina. De cualquier manera siempre aporta tener esos objetivos surrealistas de ejemplo. No todo lo propuesto me pareci&amp;oacute; genial, ya hay algunas caracter&amp;iacute;sticas muy corporate que me dan un poco de nauseas, pero en lo que respecta a las best practices propuestas me pareci&amp;oacute; muy copado. Por supuesto, habl&amp;oacute; de TATFT, y te escuch&amp;eacute;, Obie... (ring 2)&lt;/p&gt;
-&lt;p&gt;Al final del d&amp;iacute;a uno, &lt;a href="http://blog.mmediasys.com/"&gt;Luis Lavena&lt;/a&gt; (un amigo de todos nosotros) se puso a laburar con unos specs y tuve el placer de ver la disciplina de este chab&amp;oacute;n. Ufff. Uffff. Mierda, no baja los brazos. No me acuerdo que era lo que estaba especificando (asumo que algo referido al Ruby Installer de Windows) pero el flaco no abandonaba la pr&amp;aacute;ctica en ning&amp;uacute;n momento. Inclusive los probaba contra Ruby 1.8.6 y 1.9.1. Ver tipos as&amp;iacute; a veces es como una pi&amp;oacute;a de certeza (ring 3)&lt;/p&gt;
-&lt;p&gt;Al otro d&amp;iacute;a, presenci&amp;eacute; la charla de &lt;a href="http://github.com/miloops"&gt;Emilio Tagua&lt;/a&gt;, sobre debugging de aplicaciones rails (muy buena). Al final no se quien agreg&amp;oacute; algo como DATFT (Debugging all the fucking time) refiri&amp;eacute;ndose a que todo lo que hab&amp;iacute;a explicado Emlio no era para guardar para una emergencia, sino que hab&amp;iacute;a que usarlo, practicarlo e incorporarlo, porque no iba a ser f&amp;aacute;cil usar ese toolkit cuando quemaran las papas (ring 4).&lt;/p&gt;
-&lt;p&gt;El valor del test (first) es evidente. No hace falta urgar demasiado en su definici&amp;oacute;n para ver sus beneficios, pero requiere disciplina. Mucha.&lt;/p&gt;
-&lt;p&gt;La cuesti&amp;oacute;n es que ese tema me hace ruido desde hace muchos meses. Todo el tiempo, en cada proyecto, siento que arranco bien, escribiendo specs como corresponde, incluyendo algunos user stories del pepino. Pero que de alguna forma, luego de un tiempo, la cosa se descarrila un poco y pierdo la disciplina: *Comienzo a escribir sin tests.* Si, lo dije, y sin pudor.&lt;/p&gt;
-&lt;p&gt;Algo empuja, que hace que pierda esa batalla. En parte creo que tiene que ver con que el cliente no tiene ni idea del valor del testing y presiona para sacar el feature ya, o simplemente "se trata de un toque muy simple y no vale la pena escribir unos tests para eso", o lisa y llanamente no llego con los tiempos y tengo que correr para llegar a tiempo (problemas de estimaci&amp;oacute;n).&lt;/p&gt;
-&lt;p&gt;No se muy bien cu&amp;aacute;l es la cuesti&amp;oacute;n. Si alguien sabe... please, comenten! Imagino que no soy el &amp;uacute;nico con estos fucking problemas.&lt;/p&gt;
-&lt;p&gt;Asi que mi resoluci&amp;oacute;n post LXR es disciplinarme lo suficiente respecto a mis t&amp;eacute;cnicas de BDD. M&amp;aacute;s all&amp;aacute; de los posts habituales de un blog personal, estar&amp;eacute; bloggeando acerca de lo que vaya aprendiendo durante la marcha. En principio, back to basics. A leer, estudiar y desde hoy, no escribir sin specs.&lt;/p&gt;
-&lt;strong&gt;M&amp;aacute;s vale test en mano que ruby volando.&lt;/strong&gt;
 </content>
  </entry>
  

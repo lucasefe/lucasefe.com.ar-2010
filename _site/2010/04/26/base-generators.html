@@ -2,7 +2,7 @@
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Montt – Vera</title>
+    <title>Base Generators – Vera</title>
     <meta content="Lucas Florio (http://www.lucasefe.com.ar)" name="author" />
     <link href="http://www.lucasefe.com.ar/feed/atom.xml" rel="alternate" title="Lucas Efe" type="application/atom+xml" />
     <link href="/css/screen.css" rel="stylesheet" type="text/css" />
@@ -41,36 +41,76 @@
       </div>
       <div id="content">
         <div id="post">
-          <h1><a href="/">Montt</a></h1>
+          <h1><a href="/">Base Generators</a></h1>
           <p class="subtitle">
-            09/09/2008.
+            26/04/2010.
             Tags:
-            <a href="/tag.html#blogs">blogs</a>.
-            <span id="edit"><a href="txmt://open?url=file:///Users/lucasefe/programming/lucasefe.com.ar/_posts/2008-9-9-montt.haml"></a></span>
+            <a href="/tag.html#rails">rails</a>, <a href="/tag.html#base-generators">base-generators</a> and <a href="/tag.html#ruby">ruby</a>.
+            <span id="edit"><a href="txmt://open?url=file:///Users/lucasefe/programming/lucasefe.com.ar/_posts/2010-04-26-base-generators.haml"></a></span>
           </p>
-          <p>Hac&iacute;a mucho que no me interesaba por un blog que no sea de desarrollo, y hace unos meses, no s&eacute; por qu&eacute; medio, conoc&iacute; el blog de Montt. Montt es un humorista chileno, muy agudo, que publica en su blog, "Alberto Montt en dosis diarias":http://www.dosisdiarias.com/ un comic superior.</p>
-          <p>Pues que lo recomiendo!</p>
-          <p>Si pueden, y tienen ganas, miren este que les dejo abajo:</p>
-          <a href="http://www.dosisdiarias.com/2008/09/2008-09-09.html">Link</a>
+          <p>
+            Cada vez que comienzo con un proyecto me encuentro con las mismas tareas b&aacute;sicas. Poner jQuery, configurar las gemas b&aacute;sicas, poner un layout como la gente (que no sea esa cosa fea que trae rails por default). Adem&aacute;s me encuentro tambi&eacute;n con el problema de los requeriimientos b&aacute;sicos de cada ABM:
+          </p>
+          <em>"Ehhh, yo quiero poder buscar por nombre, y que est&eacute; ordenado por documento..."</em>
+          <p>Adem&aacute;s es un cl&aacute;sico que tengo que agregar un mont&oacute;n de helpers que uso siempre.</p>
+          <p>Y ni hablar de la paginaci&oacute;n...</p>
+          <p>As&iacute; que desde hace un tiempo, cre&eacute; el Base Generators que no es otra cosa que un conjunto de generadores para Rails que uso para no tener que pensar en eso cada vez y poder concentrarme en las cosas lindas que me gusta hacer (lo que eso sea).</p>
+          <h2>Instalaci&oacute;n</h2>
+          <p>
+            El c&oacute;digo est&aacute; ac&aacute;:
+            <code>http://github.com/lucasefe/base-generators</code>
+            pero se puede instalar con un simple:
+            <code>gem install base-generators</code>
+          </p>
+          <h2>&iquest;Qu&eacute; provee?</h2>
+          <p>Una imagen vale m&aacute;s que mil palabras:</p>
+          <a class="thickbox" href="/images/base-generators-01.png">
+            <img src="/images/base-generators-01-thumb.png" />
+          </a>
+          <p>Por ahora provee dos generadores.</p>
+          <ul>
+            <li>
+              <h2>base_bootstrap</h2>
+              <p>
+                <code>ruby script/generate base_bootstrap</code>
+              </p>
+              <p>Genera los archivos requeridos por cada scaffold que luego generemos. Se incluyen algunos partials (que van en app/views/common) y m&aacute;s un par de helpers. La idea es generarlo una sola vez, cuando acabamos de crear la aplicaci&oacute;n.</p>
+            </li>
+            <li>
+              <h2>base_scaffold</h2>
+              <p>
+                <code>ruby script/generate base_scaffold Product title:string price:decimal</code>
+              </p>
+              <p>Genera un ABM que usa:</p>
+              <ul>
+                <li><a href="http://github.com/josevalim/inherited_resources">inherited resources</a> (no tiene sentido escribir una y mil veces los mismos m&eacute;todos en cada controller).</li>
+                <li><a href="http://github.com/mislav/will-paginate">WillPaginate</a> para la paginaci&oacute;n</li>
+                <li><a href="http://github.com/justinfrench/formtastic">Formtastic</a> (para los formularios de creaci&oacute;n, edici&oacute;n y b&uacute;squeda)</li>
+                <li><a href="http://github.com/nex3/haml">Haml</a></li>
+                <li><a href="http://github.com/josevalim/show_for">ShowFor</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p>En fin, una gema simple, que uso mucho y quiz&aacute;s le pueda servir a otros tambi&eacute;n. La idea no era inventar algo, sino evitar repetir las mismas tareas una y otra  vez.</p>
           <div id="older_and_newer">
             <p>
-              <strong>Newer:</strong>
-              <a href="/2008/09/09/montt.html">Montt</a>
-            </p>
-            <p>
               <strong>Older:</strong>
-              <a href="/2008/09/08/nuevo-hogar-nuevo-blog.html">Nuevo Hogar / Nuevo Blog</a>
+              <a href="/2010/04/24/going-static.html">Going static</a>
             </p>
           </div>
           <div id="related_posts">
             <h3>Related posts</h3>
             <p>
-              <strong>09/09/2008</strong>
-              <a href="/2008/09/09/montt.html">Montt</a>
+              <strong>26/04/2010</strong>
+              <a href="/2010/04/26/base-generators.html">Base Generators</a>
             </p>
             <p>
               <strong>05/04/2009</strong>
               <a href="/2009/04/05/locosxrails-resolutions.html">LocosXRails Post Resolutions</a>
+            </p>
+            <p>
+              <strong>22/04/2009</strong>
+              <a href="/2009/04/22/remarkable.html">Remarkable</a>
             </p>
             <p>
               <strong>22/09/2008</strong>
@@ -81,28 +121,24 @@
               <a href="/2009/03/16/mix-day-1.html">Mix Day 1 - Parte 1</a>
             </p>
             <p>
-              <strong>26/04/2010</strong>
-              <a href="/2010/04/26/base-generators.html">Base Generators</a>
+              <strong>10/09/2008</strong>
+              <a href="/2008/09/10/ableton-save-my-life.html">Ableton save my life!</a>
             </p>
             <p>
-              <strong>17/09/2008</strong>
-              <a href="/2008/09/17/voy-a-tocar-el-fondo-de-lo-que-soy.html">Voy a tocar el fondo de lo que soy</a>
+              <strong>13/12/2009</strong>
+              <a href="/2009/12/13/kit-basico-de-librerias-2009.html">Kit b&aacute;sico de librer&iacute;as 2009</a>
             </p>
             <p>
               <strong>23/03/2009</strong>
               <a href="/2009/03/23/mix-day-2.html">Feliz Mix Day (2)</a>
             </p>
             <p>
-              <strong>16/02/2010</strong>
-              <a href="/2010/02/16/ted-ideas-worth-spreading.html">TED - Ideas worth spreading</a>
+              <strong>22/09/2009</strong>
+              <a href="/2009/09/22/encuesta-sobre-ruby-argentina.html">Encuesta sobre Ruby en Argentina usando Google Forms</a>
             </p>
             <p>
-              <strong>10/09/2008</strong>
-              <a href="/2008/09/10/ableton-save-my-life.html">Ableton save my life!</a>
-            </p>
-            <p>
-              <strong>22/03/2009</strong>
-              <a href="/2009/03/22/mix-day-1-parte-2-2.html">Mix Day 2 - Parte 1</a>
+              <strong>06/03/2010</strong>
+              <a href="/2010/03/06/rails-y-ruby-1-9-en-espa-ol.html">Rails 2.3.x y Ruby 1.9, en espa&ntilde;ol</a>
             </p>
             <p>
               <strong>06/05/2009</strong>
