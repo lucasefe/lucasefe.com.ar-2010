@@ -20,9 +20,10 @@
         = link_to('<img src="http://www.gravatar.com/avatar/1156b6ec7075396cf55fcc7425b79b37?s=48&d=http%3A%2F%2Fgithub.com%2Fimages%2Fgravatars%2Fgravatar-48.png" width="30" height="30" alt="" />', "/")
       
       .right-box
-        == Acerca de #{link_to('Lucas Florio', '/about.html')}
-        \-
-        = link_to('RSS', FEED_URL), '.'
+        == Acerca de #{link_to('Lucas Florio', '/about.html')} - 
+        
+        = link_to('CV', "/cv.html"), ' - '
+        = link_to('RSS', FEED_URL)
 
     #site
       #sidebar
