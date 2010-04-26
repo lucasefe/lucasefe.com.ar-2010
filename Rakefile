@@ -4,23 +4,13 @@ task :deploy do
   require 'highline/import'
   require 'net/ssh'
 
-  branch = "master"
-
   username = ask("Username: ") { |q| q.echo = true }
   password = ask("Password: ") { |q| q.echo = "*" }
 
-  Net::SSH.start('www.lucasefe.com.ar', username, :port => 22, :password => password) do |ssh|
+  Net::SSH.start('neura.lucasefe.com.ar', username, :port => 22, :password => password) do |ssh|
     commands = <<EOF
 cd /var/apps/www.lucasefe.com.ar/cached-copy
-git checkout #{branch}
-git pull origin #{branch}
-git checkout -f
-rm -rf _site
-jekyll --no-auto
-mv _site ../_#{branch}
-mv ../#{branch} _old
-mv ../_#{branch} ../#{branch}
-rm -rf _old
+git pull
 EOF
     commands = commands.gsub(/\n/, "; ")
     ssh.exec commands
