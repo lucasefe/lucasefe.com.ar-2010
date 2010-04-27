@@ -2,7 +2,7 @@
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Git on Mac – Vera</title>
+    <title>Cargando un diferentes frameworks en Compass cuando usamos Rails (2.3.5) – Vera</title>
     <meta content="Lucas Florio (http://www.lucasefe.com.ar)" name="author" />
     <link href="http://www.lucasefe.com.ar/feed/atom.xml" rel="alternate" title="Lucas Efe" type="application/atom+xml" />
     <link href="/css/screen.css" rel="stylesheet" type="text/css" />
@@ -41,42 +41,42 @@
       </div>
       <div id="content">
         <div id="post">
-          <h1><a href="/">Git on Mac</a></h1>
+          <h1><a href="/">Cargando un diferentes frameworks en Compass cuando usamos Rails (2.3.5)</a></h1>
           <p class="subtitle">
-            22/09/2008.
+            27/04/2010.
             Tags:
             .
-            <span id="edit"><a href="txmt://open?url=file:///Users/lucasefe/programming/lucasefe.com.ar/_posts/2008-9-22-git-on-mac.haml"></a></span>
+            <span id="edit"><a href="txmt://open?url=file:///Users/lucasefe/programming/lucasefe.com.ar/_posts/2010-04-27-compass-rails-y-plugins.haml"></a></span>
           </p>
-          <p>Git es el e nuevo source control. En la rubyosfera casi todos lo est&aacute;n usando. Es simple, poderoso, distribuido y un mont&oacute;n de atributos m&aacute;s, pero su uso sigue estando limitado a consola, o a su interfase gr&aacute;fica basada en Tcl/Tk.</p>
-          <p>En fin, para los usuarios de Mac solamente, se puede instalar GitX, que es un la versi&oacute;n nativa para mac del Gitk.</p>
-          <p><a href="http://github.com/pieter/gitx/wikis">http://github.com/pieter/gitx/wikis</a></p>
-          <p>Incluye las siguientes caracter&iacute;sticas:</p>
-          <ul>
-            <li>Navegaci&oacute;n del historial del repositorio</li>
-            <li>Visualizaci&oacute;n de la las diferencias de una manera "amigable"</li>
-            <li>B&uacute;squedas basadas en autor, o en t&iacute;tulo de la revisi&oacute;n.</li>
-            <li>Se puede acceder al &aacute;rbol completo de la revisi&oacute;n</li>
-            <li>Previsualizaci&oacute;n de cualquier archivo en modo texto o con QuickView.</li>
-            <li>Drag and drop de archivos al file system para poder accederlos f&aacute;cilmente.</li>
-          </ul>
-          <p>Muy pr&aacute;ctico, aunque aun no evita la consola al 100%. Por suerte est&aacute; en pa&oacute;ales, as&iacute; que ir&aacute; mejorando continuamente.</p>
-          <p>Ah, y es GPL.</p>
+          <p>Estoy usando <a href="http://github.com/chriseppstein/compass">compass</a> y <a href="http://github.com/chriseppstein/compass-960-plugin">compass-960-plugin</a>, pero en sus versiones prerelease.</p>
+          <p>Mi Gemfile luce as&iacute;:</p>
+          <div class="CodeRay">
+            <div class="code"><pre>source <span style="color:#A60">:gemcutter</span>&#x000A;gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">rails</span><span style="color:#710">'</span></span>, <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">~&gt; 2.3.5</span><span style="color:#710">'</span></span>, <span style="color:#A60">:require</span> =&gt; <span style="color:#038;font-weight:bold">nil</span>&#x000A;gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">mysql</span><span style="color:#710">'</span></span>, <span style="color:#A60">:require</span> =&gt; <span style="color:#038;font-weight:bold">nil</span>&#x000A;gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">sqlite3-ruby</span><span style="color:#710">'</span></span>, <span style="color:#A60">:require</span> =&gt; <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">sqlite3</span><span style="color:#710">'</span></span>&#x000A;gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">test-unit</span><span style="color:#710">'</span></span>, <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">1.2.3</span><span style="color:#710">'</span></span>, <span style="color:#A60">:require</span> =&gt; <span style="color:#038;font-weight:bold">nil</span>&#x000A;&#x000A;group <span style="color:#A60">:plugins</span> <span style="color:#080;font-weight:bold">do</span>&#x000A;  <span style="color:#888">#...</span>&#x000A;  gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">&quot;</span><span style="">haml</span><span style="color:#710">&quot;</span></span>, <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">&quot;</span><span style="">3.0.0.rc.2</span><span style="color:#710">&quot;</span></span>&#x000A;  gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">compass</span><span style="color:#710">'</span></span>, <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">0.10.0.rc4</span><span style="color:#710">'</span></span>&#x000A;  gem <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">compass-960-plugin</span><span style="color:#710">'</span></span>&#x000A;<span style="color:#080;font-weight:bold">end</span>&#x000A;</pre></div>
+          </div>
+          <p>La cuesti&oacute;n es simple. Cómo le digo a compass que me incluya un determinado plugin? Según la documentación, debería indicárselo así:</p>
+          <pre><code>compass create -r ninesixty . --using 960 --syntax sass</code></pre>
+          <p>Pero la realidad es que deberíamos indicarselo así:</p>
+          <pre><code>compass create -r ninesixty . --using 960 --syntax sass --app rails</code></pre>
+          <p>Y eso ser&iacute;a todo. Si no le especificamos a compass que estamos usando Rails (con el --app rails), nos va a terminar generando los archivos en un directorio src/ porque asume que el tipo de aplicaci&oacute;n que estamos construyendo es standalone.</p>
           <div id="older_and_newer">
             <p>
-              <strong>Newer:</strong>
-              <a href="/2008/09/22/git-on-mac.html">Git on Mac</a>
-            </p>
-            <p>
               <strong>Older:</strong>
-              <a href="/2008/09/17/voy-a-tocar-el-fondo-de-lo-que-soy.html">Voy a tocar el fondo de lo que soy</a>
+              <a href="/2010/04/26/base-generators.html">Base Generators</a>
             </p>
           </div>
           <div id="related_posts">
             <h3>Related posts</h3>
             <p>
-              <strong>22/09/2008</strong>
-              <a href="/2008/09/22/git-on-mac.html">Git on Mac</a>
+              <strong>27/04/2010</strong>
+              <a href="/2010/04/27/compass-rails-y-plugins.html">Cargando un diferentes frameworks en Compass cuando usamos Rails (2.3.5)</a>
+            </p>
+            <p>
+              <strong>06/03/2010</strong>
+              <a href="/2010/03/06/rails-y-ruby-1-9-en-espa-ol.html">Rails 2.3.x y Ruby 1.9, en espa&ntilde;ol</a>
+            </p>
+            <p>
+              <strong>22/04/2009</strong>
+              <a href="/2009/04/22/remarkable.html">Remarkable</a>
             </p>
             <p>
               <strong>26/04/2010</strong>
@@ -87,8 +87,8 @@
               <a href="/2009/04/05/locosxrails-resolutions.html">LocosXRails Post Resolutions</a>
             </p>
             <p>
-              <strong>22/09/2008</strong>
-              <a href="/2008/09/22/manzanas.html">Manzanas</a>
+              <strong>23/03/2009</strong>
+              <a href="/2009/03/23/mix-day-2.html">Feliz Mix Day (2)</a>
             </p>
             <p>
               <strong>16/03/2009</strong>
@@ -99,24 +99,16 @@
               <a href="/2009/12/13/kit-basico-de-librerias-2009.html">Kit b&aacute;sico de librer&iacute;as 2009</a>
             </p>
             <p>
-              <strong>23/03/2009</strong>
-              <a href="/2009/03/23/mix-day-2.html">Feliz Mix Day (2)</a>
+              <strong>09/03/2009</strong>
+              <a href="/2009/03/09/marzo.html">Marzo</a>
+            </p>
+            <p>
+              <strong>06/05/2009</strong>
+              <a href="/2009/05/06/debt.html">Debt</a>
             </p>
             <p>
               <strong>22/09/2009</strong>
               <a href="/2009/09/22/encuesta-sobre-ruby-argentina.html">Encuesta sobre Ruby en Argentina usando Google Forms</a>
-            </p>
-            <p>
-              <strong>10/09/2008</strong>
-              <a href="/2008/09/10/ableton-save-my-life.html">Ableton save my life!</a>
-            </p>
-            <p>
-              <strong>06/03/2010</strong>
-              <a href="/2010/03/06/rails-y-ruby-1-9-en-espa-ol.html">Rails 2.3.x y Ruby 1.9, en espa&ntilde;ol</a>
-            </p>
-            <p>
-              <strong>22/04/2009</strong>
-              <a href="/2009/04/22/remarkable.html">Remarkable</a>
             </p>
           </div>
           <div id="disqus_thread"></div>
