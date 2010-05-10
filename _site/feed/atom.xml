@@ -4,7 +4,7 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-05-10T17:14:50-03:00</updated>
+ <updated>2010-05-10T17:19:27-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
@@ -17,7 +17,7 @@
    <link href="http://www.lucasefe.com.ar/2010/05/10/rails3-autotest-rspec2-y-ruby-1-9-2"/>
    <updated>2010-05-10T00:00:00-03:00</updated>
    <id>http://www.lucasefe.com.ar/2010/05/10/rails3-autotest-rspec2-y-ruby-1-9-2</id>
-   <content type="html">&lt;p&gt;Hace unos d&amp;iacute;as, en mi tiempo libre, me puse a probar un poco el nuevo Rails 3. La idea era arrancar de cero con un nuevo sitio, sin usar casi nada de c&amp;oacute;digo existente, y haciendo BDD al 100%.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Hace unos d&amp;iacute;as, en mi tiempo libre, me puse a probar un poco el nuevo Rails 3. La idea era arrancar de cero con un nuevo sitio, sin usar casi nada de c&amp;oacute;digo existente, y haciendo BDD al 100%, pero me encontr&amp;eacute; con 40 mil quilombos. He aqu&amp;iacute; los pasos a seguir:&lt;/p&gt;
 &lt;h2&gt;Instalar Ruby y Rails&lt;/h2&gt;
 &lt;p&gt;Primero segu&amp;iacute; las instrucciones que encontr&amp;eacute; en el blog de &lt;a href="http://blog.plataformatec.com.br/2010/04/rails-3-with-rvm-ftw/"&gt;plataforma tec&lt;/a&gt;. Me acabo de fijar y ahora dice que usemos 1.9.2-head, pero antes dec&amp;iacute;a que us&amp;aacute;ramos la 1.9.2-preview1 (no good).&lt;/p&gt;
 &lt;h2&gt;Instalar Rspec&lt;/h2&gt;
