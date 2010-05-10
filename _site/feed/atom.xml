@@ -4,13 +4,52 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-04-27T12:48:49-03:00</updated>
+ <updated>2010-05-10T17:14:50-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Rails 3, Autotest, Rspec2 y Ruby 1.9.2</title>
+   <link href="http://www.lucasefe.com.ar/2010/05/10/rails3-autotest-rspec2-y-ruby-1-9-2"/>
+   <updated>2010-05-10T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/05/10/rails3-autotest-rspec2-y-ruby-1-9-2</id>
+   <content type="html">&lt;p&gt;Hace unos d&amp;iacute;as, en mi tiempo libre, me puse a probar un poco el nuevo Rails 3. La idea era arrancar de cero con un nuevo sitio, sin usar casi nada de c&amp;oacute;digo existente, y haciendo BDD al 100%.&lt;/p&gt;
+&lt;h2&gt;Instalar Ruby y Rails&lt;/h2&gt;
+&lt;p&gt;Primero segu&amp;iacute; las instrucciones que encontr&amp;eacute; en el blog de &lt;a href="http://blog.plataformatec.com.br/2010/04/rails-3-with-rvm-ftw/"&gt;plataforma tec&lt;/a&gt;. Me acabo de fijar y ahora dice que usemos 1.9.2-head, pero antes dec&amp;iacute;a que us&amp;aacute;ramos la 1.9.2-preview1 (no good).&lt;/p&gt;
+&lt;h2&gt;Instalar Rspec&lt;/h2&gt;
+&lt;p&gt;Simple. Le&amp;iacute; en un par de lugares que hab&amp;iacute;a que seguir los pasos de este &lt;a href="http://gist.github.com/365816"&gt;GIST&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+  Rspec le agrega a tu proyecto Rails 3 un directorio autotest con un archivo discover.rb que se encarga de cargar los mappings de rspec para que autotest sepa d&amp;oacute;nde encontrar los archivos spec/**/*_spec.rb. En ruby 1.8 eso funciona perfecto, porque esa carpeta est&amp;aacute; en el directorio actual, que es incluido en el LOAD_PATH.
+&lt;/p&gt;
+&lt;p&gt;
+  En ruby 1.9.2 eso no es as&amp;iacute; (el directorio actual no se incluye) (al menos hasta hoy), entonces al ejecutar
+  &lt;code&gt;autotest&lt;/code&gt;
+  que no te encuentra ninguno de los specs que tengas en tu directorio spec.
+  &lt;pre&gt;&lt;code&gt;lucasefe:justoalcaer.com.ar/ (master) $ autotest                                                                                                                        [16:55:24]
+  (Not running features.  To run features in autotest, set AUTOFEATURE=true.)
+  loading autotest/rails
+  style: Rails
+  (y ac&amp;aacute; nada)&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;
+&lt;br /&gt;
+&lt;h2&gt;Habemus fix?&lt;/h2&gt;
+&lt;p&gt;Si, pero no es muy limpio. Con &lt;a href="http://twitter.com/jbarreneche"&gt;Juan Manuel&lt;/a&gt;, mi compa&amp;ntilde;ero de laburo, estuvimos buscando soluciones y se nos ocurri&amp;oacute; algo muy simple.&lt;/p&gt;
+&lt;p&gt;Escribir un nuevo autotest (solo el loader) y agregarle el directorio actual al LOAD_PATH. Si, obvia soluci&amp;oacute;n.&lt;/p&gt;
+&lt;p&gt;Quedar&amp;iacute;a as&amp;iacute;:&lt;/p&gt;
+&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;&lt;span style="color:#34b"&gt;#!/usr/bin/env ruby&lt;/span&gt;&amp;#x000A;require &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;rubygems&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;&amp;#x000A;&amp;#x000A;version = &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;&amp;gt;= 0&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;#x000A;&amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;if&lt;/span&gt; &lt;span style="color:#038;font-weight:bold"&gt;ARGV&lt;/span&gt;.first =~ &lt;span style="background-color:#fff0ff"&gt;&lt;span style="color:#404"&gt;/&lt;/span&gt;&lt;span style="color:#808"&gt;^_(.*)_$&lt;/span&gt;&lt;span style="color:#404"&gt;/&lt;/span&gt;&lt;/span&gt; &lt;span style="color:#080;font-weight:bold"&gt;and&lt;/span&gt; &lt;span style="color:#036;font-weight:bold"&gt;Gem&lt;/span&gt;::&lt;span style="color:#036;font-weight:bold"&gt;Version&lt;/span&gt;.correct? &lt;span style="color:#d70;font-weight:bold"&gt;$1&lt;/span&gt; &lt;span style="color:#080;font-weight:bold"&gt;then&lt;/span&gt;&amp;#x000A;  version = &lt;span style="color:#d70;font-weight:bold"&gt;$1&lt;/span&gt;&amp;#x000A;  &lt;span style="color:#038;font-weight:bold"&gt;ARGV&lt;/span&gt;.shift&amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&amp;#x000A;gem &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;autotest&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;, version&amp;#x000A;&lt;span style="color:#d70;font-weight:bold"&gt;$LOAD_PATH&lt;/span&gt;.unshift(&lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;.&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&amp;#x000A;load &lt;span style="color:#036;font-weight:bold"&gt;Gem&lt;/span&gt;.bin_path(&lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;autotest&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;autotest&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;, version)&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  Grabar el archivo en alg&amp;uacute;n lado (por ejemplo autotest-1.9.2) y hacerlo ejecutable con
+  &lt;code&gt;chmod +x autotest-1.9.2&lt;/code&gt;
+&lt;/p&gt;
+&lt;p&gt;Ejecutar ese archivo en vez del anterior. No es la soluci&amp;oacute;n m&amp;aacute;s elegante, pero hasta que se solucione, ese es un buen workaround.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Cargando un diferentes frameworks en Compass cuando usamos Rails (2.3.5)</title>
@@ -347,45 +386,6 @@ Bis:
 &lt;p&gt;Si fuera por mi sab&amp;eacute;s que har&amp;iacute;a? Y antes de contestar pienso: Y si no es por mi, por qui&amp;eacute;n es? Ah&amp;iacute; est&amp;aacute; la cuesti&amp;oacute;n... Fuck... (Me odio a veces... &amp;iquest;Qu&amp;eacute; hago ahora con esa mierda que escuch&amp;eacute;?). Cu&amp;aacute;nto estamos realmente haciendo por nosotros? No ser&amp;aacute; que siempre estamos luchando por el amor del Otro? De eso se trata? Uno "es" quien cree que es en funci&amp;oacute;n del Otro? Qu&amp;eacute; ser&amp;aacute; de nosotros sin la existencia del Otro? Me asesina esa prisi&amp;oacute;n, y a la vez, esa celda es tambi&amp;eacute;n un lugar seguro, de certeza.&lt;/p&gt;
 &lt;p&gt;Si, hoy a la tarde me tomo una pastilla para no pensar... as&amp;iacute; me puedo transformar en un robotito tonto que sigue un destino que no entiende...&lt;/p&gt;
 &lt;p&gt;Sent.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Remarkable</title>
-   <link href="http://www.lucasefe.com.ar/2009/04/22/remarkable"/>
-   <updated>2009-04-22T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/04/22/remarkable</id>
-   <content type="html">&lt;p&gt;Rspec es genial. Out-of-the-box te provee unos "meta-matchers" bastante piolas. Si ten&amp;eacute;s un m&amp;eacute;todo que retorne un boolean y termine en ? pod&amp;eacute;s preguntar algo como esto:&lt;/p&gt;
-&lt;div class="CodeRay"&gt;
-  &lt;div class="code"&gt;&lt;pre&gt;describe &lt;span style="color:#036;font-weight:bold"&gt;User&lt;/span&gt; &lt;span style="color:#080;font-weight:bold"&gt;do&lt;/span&gt;&amp;#x000A;  &lt;span style="color:#888"&gt;# suponiendo que @user responde a admin?&lt;/span&gt;&amp;#x000A;  subject { &lt;span style="color:#036;font-weight:bold"&gt;User&lt;/span&gt;.new }&amp;#x000A;  it { should be_admin } &amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;
-  S&amp;uacute;per copado, pero nada nuevo. Claro, cuando te empez&amp;aacute;s a meter un poco m&amp;aacute;s, descubr&amp;iacute;s que muchas de los matchers que us&amp;aacute;s siempre, alguien ya las "meti&amp;oacute;" en un m&amp;oacute;dulo y las puso disponibles para todos. Dos ejemplos de ello son &lt;a href="http://github.com/joshknowles/rspec-on-rails-matchers/tree/master"&gt;rspec_on_rails_matchers&lt;/a&gt; (buen inicio, pero se qued&amp;oacute; en el tiempo) y &lt;a href="http://thoughtbot.com/projects/shoulda/"&gt;shoulda&lt;/a&gt; (que es excelente).
-&lt;/p&gt;
-&lt;p&gt;
-  La cuesti&amp;oacute;n es que despu&amp;eacute;s de usar shoulda una semana, di con &lt;a href="http://remarkable.rubyforge.org/"&gt;Remarkable&lt;/a&gt; (luego de escuchar, creo, a los pibes de &lt;a href="http://www.railsenvy.com"&gt;RailsEnvy&lt;/a&gt; .
-&lt;/p&gt;
-&lt;p&gt;
-  Remarkable es una gema que incluye espectations y matchers para usar dentro y fuera de rails. La lista es interminable, pero voy a hacer un mini-raconto de lo que estuve usando esta semana (con un supuesto modelo User):
-&lt;/p&gt;
-&lt;div class="CodeRay"&gt;
-  &lt;div class="code"&gt;&lt;pre&gt;describe &lt;span style="color:#036;font-weight:bold"&gt;User&lt;/span&gt;&amp;#x000A;  subject { &lt;span style="color:#036;font-weight:bold"&gt;Factory&lt;/span&gt;.build(&lt;span style="color:#A60"&gt;:user&lt;/span&gt;) }&amp;#x000A;  it { should validate_presence_of(&lt;span style="color:#A60"&gt;:first_name&lt;/span&gt;) }&amp;#x000A;  it { should validate_presence_of(&lt;span style="color:#A60"&gt;:last_name&lt;/span&gt;) }&amp;#x000A;  it { should have_many(&lt;span style="color:#A60"&gt;:posts&lt;/span&gt;) }&amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&amp;#x000A;describe &lt;span style="color:#036;font-weight:bold"&gt;Post&lt;/span&gt;&amp;#x000A;  subject { &lt;span style="color:#036;font-weight:bold"&gt;Factory&lt;/span&gt;.build(&lt;span style="color:#A60"&gt;:post&lt;/span&gt;) }&amp;#x000A;  &lt;span style="color:#888"&gt;# Db matchers&lt;/span&gt;&amp;#x000A;  it { should have_columns(&lt;span style="color:#A60"&gt;:title&lt;/span&gt;, &lt;span style="color:#A60"&gt;:body&lt;/span&gt;, &lt;span style="color:#A60"&gt;:permalink&lt;/span&gt;)}&amp;#x000A;  it { should have_index([&lt;span style="color:#A60"&gt;:title&lt;/span&gt;]).unique(&lt;span style="color:#038;font-weight:bold"&gt;true&lt;/span&gt;) &amp;#x000A;&amp;#x000A;  &lt;span style="color:#888"&gt;# Validaciones Active Record&lt;/span&gt;&amp;#x000A;  it { should validate_presence_of(&lt;span style="color:#A60"&gt;:title&lt;/span&gt;) }&amp;#x000A;  it { should validate_uniqueness_of(&lt;span style="color:#A60"&gt;:title&lt;/span&gt;, &lt;span style="color:#A60"&gt;:scope&lt;/span&gt; =&amp;gt; &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;topic&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;) }&amp;#x000A;  it { should validate_uniqueness_of &lt;span style="color:#A60"&gt;:title&lt;/span&gt;, &lt;span style="color:#A60"&gt;:allow_blank&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;true&lt;/span&gt;} &amp;#x000A;&amp;#x000A;  &lt;span style="color:#888"&gt;# Relaciones &lt;/span&gt;&amp;#x000A;  &lt;span style="color:#888"&gt;# se verificar&amp;amp;aacute; que el counter cache se incluya como opci&amp;amp;oacute;n y &lt;/span&gt;&amp;#x000A;  &lt;span style="color:#888"&gt;# que el campo est&amp;amp;eacute; definido en la DB. &lt;/span&gt;&amp;#x000A;  &lt;span style="color:#888"&gt;# No hay una en que no me olvide de esto. &lt;/span&gt;&amp;#x000A;  it { should belong_to(&lt;span style="color:#A60"&gt;:topic&lt;/span&gt;, &lt;span style="color:#A60"&gt;:counter_cache&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;true&lt;/span&gt;) }&amp;#x000A;  it { should belong_to(&lt;span style="color:#A60"&gt;:user&lt;/span&gt;, &lt;span style="color:#A60"&gt;:counter_cache&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;true&lt;/span&gt;) } &amp;#x000A;  &lt;span style="color:#888"&gt;# se verificar&amp;amp;aacute; que se incluya el :through como opci&amp;amp;oacute;n &lt;/span&gt;&amp;#x000A;  &lt;span style="color:#888"&gt;# adem&amp;amp;aacute;s de que exista la relaci&amp;amp;oacute;n.&lt;/span&gt;&amp;#x000A;  it { should have_many(&lt;span style="color:#A60"&gt;:comments&lt;/span&gt;) }&amp;#x000A;  it { should have_many(&lt;span style="color:#A60"&gt;:viewers&lt;/span&gt;, &lt;span style="color:#A60"&gt;:through&lt;/span&gt; =&amp;gt; &lt;span style="color:#A60"&gt;:comments&lt;/span&gt;) }&amp;#x000A;&amp;#x000A;  &lt;span style="color:#888"&gt;# named scopes&lt;/span&gt;&amp;#x000A;  it { should have_scope(&lt;span style="color:#A60"&gt;:published&lt;/span&gt;).conditions(&lt;span style="color:#A60"&gt;:published&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;true&lt;/span&gt;) }&amp;#x000A;&amp;#x000A;  &lt;span style="color:#888"&gt;# acepta colecciones c&amp;amp;oacute;mo par&amp;amp;aacute;metros&lt;/span&gt;&amp;#x000A;  it { should allow_mass_assignment_of(&lt;span style="color:#A60"&gt;:title&lt;/span&gt;, &lt;span style="color:#A60"&gt;:body&lt;/span&gt;, &lt;span style="color:#A60"&gt;:tags&lt;/span&gt;, &lt;span style="color:#A60"&gt;:permalink&lt;/span&gt;) }&amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Adem&amp;aacute;s de esto, podemos integrarlo con I18n y generar los specs en castellano, u otro idioma. Funciona exactamente igual que Rails, ya que usa la misma gema (svenfuchs-i18n). O sea, nuestro cliente no tiene que saber ingl&amp;eacute;s para entender nuestros specs. Esto, por lo menos para mi, es oro puro.&lt;/p&gt;
-&lt;p&gt;Como si esto fuera poco, adem&amp;aacute;s provee un forma de crear matchers muy f&amp;aacute;cilmente (un mini DSL), &lt;a href="http://remarkable.rubyforge.org/core/"&gt;sin reinventar la rueda&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;En el ejemplo yo solo habl&amp;eacute; de la parte de Active Record, pero tambi&amp;eacute;n incluye un mont&amp;oacute;n de matchers para el ActionController y pr&amp;oacute;ximamente para ActionView tambi&amp;eacute;n (&lt;a href="http://remarkable.rubyforge.org/rails"&gt;Ac&amp;aacute;&lt;/a&gt;).&lt;/p&gt;
-&lt;h2&gt;Instalaci&amp;oacute;n&lt;/h2&gt;
-sudo gem install remarkable_rails
-&lt;p&gt;En Rails 2.3, para que Remarkable se cargue correctamente hay que incluir lo siguiente en config/environments/test.rb&lt;/p&gt;
-&lt;div class="CodeRay"&gt;
-  &lt;div class="code"&gt;&lt;pre&gt;config.gem &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;rspec&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,            &lt;span style="color:#A60"&gt;:lib&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;false&lt;/span&gt;&amp;#x000A;config.gem &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;rspec-rails&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,      &lt;span style="color:#A60"&gt;:lib&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;false&lt;/span&gt;&amp;#x000A;config.gem &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;remarkable_rails&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, &lt;span style="color:#A60"&gt;:lib&lt;/span&gt; =&amp;gt; &lt;span style="color:#038;font-weight:bold"&gt;false&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Y despu&amp;eacute;s requerir remarkable dentro de spec_helper.rb, justo despu&amp;eacute;s de "spec/rails":&lt;/p&gt;
-&lt;div class="CodeRay"&gt;
-  &lt;div class="code"&gt;&lt;pre&gt;require &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;spec/rails&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;&amp;#x000A;require &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;remarkable_rails&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Para mi result&amp;oacute; muy &amp;uacute;til, y no veo raz&amp;oacute;n alguna para no usarlo de aqu&amp;iacute; en m&amp;aacute;s (m&amp;aacute;s all&amp;aacute; de incluir una nueva dependencia).&lt;/p&gt;
-&lt;p&gt;Si tienen la libertad de poder incluir/sugerir mejoras en sus proyectos actuales, y se cansaron de escribir siempre lo mismo, entonces prueben Remarkable. Posta, te hace la vida mucho m&amp;aacute;s simple. Ojo, hay que pensar igual :P&lt;/p&gt;
 </content>
  </entry>
  
