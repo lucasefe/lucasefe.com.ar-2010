@@ -1,1 +1,5 @@
 _drafts/
+.bundle
+.DS_Store
+.rvmrc
+_old_posts
