@@ -4,13 +4,45 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-05-11T18:24:35-03:00</updated>
+ <updated>2010-06-02T08:55:42-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>links del 5 de mayo de 2010</title>
+   <link href="http://www.lucasefe.com.ar/2010/05/30/links"/>
+   <updated>2010-05-30T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/05/30/links</id>
+   <content type="html">&lt;h1&gt;&lt;a href="/"&gt;Links&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href="http://github.com/ernie/meta_where"&gt;metawhere&lt;/a&gt;
+    &lt;p&gt;
+      Junto con
+      &lt;a href="http://github.com/ernie/meta_search"&gt;metasearch&lt;/a&gt;
+      pintan como un muy buen reemaplazo para searchlogic de binarylogic, que parece que no se subi&amp;oacute; al bondi de Rails3.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="http://wiki.github.com/protocool/AckMate/usage"&gt;AckMate&lt;/a&gt;
+    &lt;p&gt;Para buscar de manera r&amp;aacute;pida en TextMate, al menos hasta que salga la versi&amp;oacute;n 2. Otro que ser durmi&amp;oacute; en los laureles.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="http://therealadam.com/archive/2010/05/26/the-art-of-making-a-useful-todo-list/"&gt;The art of making a useful todo list&lt;/a&gt;
+    &lt;p&gt;The Real Adam&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href="http://net.tutsplus.com/tutorials/html-css-techniques/prototyping-with-the-grid-960-css-framework/"&gt;Prototyping With The Grid 960 CSS Framework &lt;/a&gt;
+    &lt;p&gt;Para arrancar con un buen framework css, que a mi entender, es lo suficientemente fácil como para no desmotivarte a los 15 minutos.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sigo luego...&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Rails 3, Autotest, Rspec2 y Ruby 1.9.2</title>
@@ -373,19 +405,6 @@ Bis:
    <content type="html">&lt;ul&gt;
   &lt;li&gt;Soluci&amp;oacute;n servida en bandeja para &lt;a href="http://leanucci.com.ar/2009/03/autotestautospec-growl.html"&gt;Autotest+Growl&lt;/a&gt; por nuestro compa&amp;oacute;ero de rubylandia Leandro Marcucci.&lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Debt</title>
-   <link href="http://www.lucasefe.com.ar/2009/05/06/debt"/>
-   <updated>2009-05-06T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/05/06/debt</id>
-   <content type="html">&lt;p&gt;Ayer hablaba con un compa&amp;oacute;ero de trabajo. Me cont&amp;oacute; de sus viajes y sus desiciones laborales m&amp;aacute;s que acertadas. Charlamos durante el almuerzo muy distentidamente, y yo le coment&amp;eacute; que me costaba dejar los laburos siempre, por ese sentimiento de attachment. Digamos, de deuda impaga. Le dije que me sorprend&amp;iacute;a c&amp;oacute;mo manejaba &amp;eacute;l eso. A &amp;eacute;l no le pasa eso... Admirable. Esa cosa de El Deber.&lt;/p&gt;
-&lt;p&gt;Volvimos al trabajo y labur&amp;eacute;, bien, como siempre, robot-man... pero me fui con un no se qu&amp;eacute; atravezado en la garganta. Sent&amp;iacute;a ese freno que te parte, la rutina insoportable. Corriendo una carrera que no es tal. La fucking zanahoria. Esa cosa de lo que hay que hacer, what we must conquer, the things we need to acomplish "to fulfill our destiny..." (como dice tu fono). La vida tiene que ser m&amp;aacute;s simple... realmente.&lt;/p&gt;
-&lt;p&gt;Si fuera por mi sab&amp;eacute;s que har&amp;iacute;a? Y antes de contestar pienso: Y si no es por mi, por qui&amp;eacute;n es? Ah&amp;iacute; est&amp;aacute; la cuesti&amp;oacute;n... Fuck... (Me odio a veces... &amp;iquest;Qu&amp;eacute; hago ahora con esa mierda que escuch&amp;eacute;?). Cu&amp;aacute;nto estamos realmente haciendo por nosotros? No ser&amp;aacute; que siempre estamos luchando por el amor del Otro? De eso se trata? Uno "es" quien cree que es en funci&amp;oacute;n del Otro? Qu&amp;eacute; ser&amp;aacute; de nosotros sin la existencia del Otro? Me asesina esa prisi&amp;oacute;n, y a la vez, esa celda es tambi&amp;eacute;n un lugar seguro, de certeza.&lt;/p&gt;
-&lt;p&gt;Si, hoy a la tarde me tomo una pastilla para no pensar... as&amp;iacute; me puedo transformar en un robotito tonto que sigue un destino que no entiende...&lt;/p&gt;
-&lt;p&gt;Sent.&lt;/p&gt;
 </content>
  </entry>
  
