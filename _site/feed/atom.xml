@@ -4,13 +4,29 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-06-02T08:55:42-03:00</updated>
+ <updated>2010-09-26T01:21:09-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Themes For Rails</title>
+   <link href="http://www.lucasefe.com.ar/2010/09/25/themes-for-rails"/>
+   <updated>2010-09-25T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/09/25/themes-for-rails</id>
+   <content type="html">&lt;p&gt;Ha pasado un buen tiempo desde mi &amp;uacute;ltimo post. Soy uno m&amp;aacute;s de los que abandona su blog cuando anda con muchas cosas, evidentemente.&lt;/p&gt;
+&lt;p&gt;Para un laburo que estoy haciendo ahora (que espero no tardar en presentar) estaba necesitando soporte para themes. Mir&amp;eacute; un poco por ah&amp;iacute;, y di con &lt;a href="http://github.com/jystewart/theme_support"&gt;themes_support&lt;/a&gt;. Lamentablemente no ten&amp;iacute;a soporte para Rails 3. Mirando un poco m&amp;aacute;s me di cuenta de que estaba implementado usando t&amp;eacute;cnicas de monkey patching (not a big fan) y que ya no le estaban dando mucha bola. Contact&amp;eacute; al mantainer y lo consult&amp;eacute; respecto al mantenimiento, y sobre una nueva versi&amp;oacute;n para Rails3. Me dijo que no ten&amp;iacute;a tiempo.&lt;/p&gt;
+&lt;p&gt;Dado que realmente necesitaba algo para brindar dicha funcionalidad, decid&amp;iacute; escribirla de cero, por mi cuenta. Esta nueva versi&amp;oacute;n se "engancha" elegantemente de Rails 3, y ha sido testeada "bastante". Debo confezar que por primera vez us&amp;eacute; TestUnit (antes era 100% rspec). Estuvo bueno.&lt;/p&gt;
+&lt;p&gt;El c&amp;oacute;digo se encuentra aqu&amp;iacute;: &lt;a href="http://github.com/lucasefe/themes_for_rails"&gt;ThemesForRails&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Compatibilidad, Instalaci&amp;oacute;n y el resto de la fruta:&lt;/h2&gt;
+&lt;p&gt;Para simplificar, se usa exactamente  igual que el theme_support, aunque su instalaci&amp;oacute;n es a trav&amp;eacute;s de rubygems. Requiere Rails 3, obviamente. El readme cuenta con un mont&amp;oacute;n de informaci&amp;oacute;n.&lt;/p&gt;
+&lt;p&gt;En fin, espero que a alguien le pueda servir tanto como a mi.&lt;/p&gt;
+&lt;p&gt;Salud, Rubistas. Nos vemos en &lt;a href="http://rubyconfuruguay.org/en"&gt;Uruguay&lt;/a&gt;, no?&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>links del 5 de mayo de 2010</title>
@@ -394,17 +410,6 @@ Bis:
 &lt;p&gt;All&amp;iacute; podr&amp;aacute;n conocer un poco de lo que hago cuando no soy programador Ruby, podr&amp;aacute;n ver fotos, leer sobre nuestros origenes y lo m&amp;aacute;s importante, escuchar un poco de lo que hacemos.&lt;/p&gt;
 &lt;p&gt;Debo confezar que es un placer terminar una etapa, aunque me d&amp;eacute; v&amp;eacute;rtigo iniciar una nueva. A tocar se ha dicho...&lt;/p&gt;
 &lt;p&gt;As&amp;iacute; que: &lt;a href="http://www.justoalcaer.com.ar/"&gt;Justo al Caer Website&lt;/a&gt;.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Link - Autotest + Growl</title>
-   <link href="http://www.lucasefe.com.ar/2009/05/21/link-autotest-growl"/>
-   <updated>2009-05-21T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/05/21/link-autotest-growl</id>
-   <content type="html">&lt;ul&gt;
-  &lt;li&gt;Soluci&amp;oacute;n servida en bandeja para &lt;a href="http://leanucci.com.ar/2009/03/autotestautospec-growl.html"&gt;Autotest+Growl&lt;/a&gt; por nuestro compa&amp;oacute;ero de rubylandia Leandro Marcucci.&lt;/li&gt;
-&lt;/ul&gt;
 </content>
  </entry>
  
