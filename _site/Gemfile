@@ -1,4 +1,5 @@
 source :gemcutter
+gem 'capistrano'
 gem "haml", "3.0.6"
 gem 'liquid'
 gem 'RedCloth'
