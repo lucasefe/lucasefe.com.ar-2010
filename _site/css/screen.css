@@ -65,7 +65,7 @@ ol#tag-cloud li.tier-6 { font-size: 150%; }
 #site #sidebar #github a, #site #sidebar #tweets a, #site #sidebar #working-with-rails a { color: black; }
 #site #sidebar #github, #site #sidebar #working-with-rails { text-align: center; }
 #site #sidebar #tweets h2 { margin-bottom: -5px; }
-#site #sidebar #tweets li { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; list-style-type: none; font-size: 12px; background: #eeeeee; padding: 8px 10px; margin: 15px 0; }
+#site #sidebar #tweets li { border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; list-style-type: none; font-size: 10px; background: #eeeeee; padding: 8px 10px; margin: 15px 0; }
 #site #sidebar #tweets li:after { content: ""; border: 8px solid transparent; border-top: 8px solid #eeeeee; border-bottom: 0; width: 0; height: 0; display: block; margin: 5px 0 -15px 0; }
 #site #content { width: 500px; margin-left: 1em; }
 #site #footer { clear: both; margin: 80px 0 -5px 0; font-size: 80%; }
