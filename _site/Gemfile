@@ -1,6 +1,6 @@
 source :gemcutter
 gem 'capistrano'
-gem "haml", "3.0.6"
+gem "haml",'3.0.21'
 gem 'liquid'
 gem 'RedCloth'
 gem 'open4'

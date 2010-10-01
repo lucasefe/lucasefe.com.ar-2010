@@ -1,33 +1,102 @@
+@mixin rounded($radio : 10px)
+  border-radius : $radio
+  -moz-border-radius : $radio
+  -webkit-border-radius : $radio
+
+@mixin shadowed 
+  -webkit-box-shadow: 1px 1px 1px #ccc
+  -moz-box-shadow: 1px 1px 1px  #ccc
+  box-shadow: 1px 1px 1px  #ccc
+
+@mixin small_rounded
+  @include rounded(5px)
+  
+
+@mixin boxed($pad : 0.8em) 
+  @include shadowed
+  @include rounded
+  border: solid 1px gray
+  margin-bottom: 0.5em
+  padding : $pad
+
+@mixin gray-box 
+  @include opaque(0.4)
+  @include rounded(5px)
+  background-color: #000000
+  border-bottom: solid 1px #E8F1EA
+
+@mixin opaque($o : 0.7) 
+  opacity: $o
+  -moz-opacity: $o
+
+@mixin link_style
+  color: #E6EEE8
+  text-decoration: none
+  &:hover
+    cursor: pointer
+    text-decoration: underline
+  &:visited
+    color: #BFC6C1
+  
 *
   margin: 0
   padding: 0
   
+  
 body
   background-color: #fff
-  font: 11.34px "Lucida Sans Unicode", arial, clean, sans-serif
+  background: url('/images/background-repeat.jpg')
+  font: 14px/1.5em 'BitstreamVeraSansMonoRoman', Arial, sans-serif
+  letter-spacing: 0.2px
   text-align: center
   padding: 60px 20px 0 20px
+
   #top-banner
-    font: 13.34px "Helvetica", arial, clean, sans-serif
-    .right-box
-      float: right
-      padding: 13px 5px 5px 5px
-    .left-box
-      float: left
-      padding: 5px
-      
-    background-color: #C9C9C9
-    border-bottom: solid 1px #B11A31
     float: left
     font-size: 15px
     height: 40px
     left: 0px
-    opacity: 0.5
+    padding: 5px
     position: fixed
     text-align: right
     top: 0px
     width: 100%
-      
+    
+    .right-box
+      @include gray-box
+      float: right
+      padding: 0.28em 0.49em
+      text-align: right
+      width: 6%
+      img
+        margin-top: 5px
+
+    .left-box
+      @include gray-box
+      float: left
+      padding: 0.5em
+      text-align: left
+      width: 90%
+
+      .cv
+        padding-left: 35px
+        img
+          border: solid 1px #000  
+          margin-top: 7px
+      .author
+        font: 22px 'SpinCycleOTRegular', Arial, sans-serif
+        letter-spacing: 2px
+        margin-top: 2px
+        a
+          color: #E8F1EA
+          text-decoration: none
+          &:hover
+            color: #E8F1EA
+            text-decoration: underline
+          &:visited
+            color: #DCE4DE
+            
+
 
 
 h1, h2, h3, h4, h5, h6
@@ -35,7 +104,7 @@ h1, h2, h3, h4, h5, h6
 h1
   line-height: 110%
   font-size: 25px
-  font-family: 'Myriad Pro', Helvetica, Arial, sans-serif
+  font-family: 'SpinCycleOTRegular', Helvetica, Arial, sans-serif
   margin-bottom: 20px
   a
     color: #000
@@ -48,13 +117,7 @@ p
   margin: 1em 0
 
 a
-  color: #B11A31
-  text-decoration: none
-  &:hover
-    color: #B11A31
-    text-decoration: underline
-  &:visited
-    color: #B11A31
+  +link_style
   img
     border: 0
 
@@ -144,12 +207,15 @@ ol#tag-cloud
           color: #000
     #github, #tweets, #working-with-rails
       margin-top: 45px
+      a
+        color: #000000
     #github, #working-with-rails
       text-align: center
     #tweets
       h2
         margin-bottom: -5px
       li
+        @include rounded(4px)
         list-style-type: none
         font-size: 12px
         background: #eee
