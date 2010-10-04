@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Adding Custom Input Fields to Simple Form – Vera</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="Lucas Florio (http://www.lucasefe.com.ar)" name="author" />
+    <link href="http://www.lucasefe.com.ar/feed/atom.xml" rel="alternate" title="Lucas Efe" type="application/atom+xml" />
+    <link href="/fonts/Nobile/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="/fonts/Spin-Cycle-OT/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="/fonts/Bitstream-Vera-Sans-Mono/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+    <link href="/css/thickbox.css" rel="stylesheet" type="text/css" />
+    <link href="/css/coderay.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/js/jquery.twitter.js" type="text/javascript"></script>
+    <script src="/js/thickbox-compressed.js" type="text/javascript"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="top-banner">
+      <div class="left-box">
+        <span class="author"><a href="/about.html">Lucas Efe</a></span>
+      </div>
+      <div class="right-box">
+        <a href="http://www.myspace.com/justoalcaer"><img src='/images/myspace.png' width='20' height='20' /></a>
+        <a href="http://www.lucasefe.com.ar/feed/atom.xml"><img src='/images/rss.png' width='20' height='20' /></a>
+      </div>
+    </div>
+    <div id="site">
+      <div id="sidebar">
+        <form action="http://www.google.com/search" id="search" method="get">
+          <input class="text" name="q" type="text" />
+          <input name="sitesearch" type="hidden" value="lucasefe.com.ar" />
+          <input class="button" type="submit" value="Google" />
+        </form>
+        <div id="github">
+          <a href="http://github.com/lucasefe">
+            <img alt="github.com/lucasefe" src="http://github.com/images/modules/header/logov3.png" />
+          </a>
+        </div>
+        <div id="working-with-rails">
+          <a href="http://www.workingwithrails.com/recommendation/new/person/7277-lucas-florio">
+            <img alt="Recommend Me" src="http://workingwithrails.com/images/tools/compact-small.jpg" />
+          </a>
+        </div>
+        <div id="tweets"></div>
+      </div>
+      <div id="content">
+        <div id="post">
+          <h1><a href="/">Adding Custom Input Fields to Simple Form</a></h1>
+          <p class="subtitle">
+            04/10/2010
+          </p>
+          <p class="tags">
+            Tags:
+            <a href="/tag.html#simple_form">simple_form</a>, <a href="/tag.html#ruby">ruby</a> and <a href="/tag.html#english">english</a>
+            <span id="edit"><a href="txmt://open?url=file:///Users/lucasefe/programming/lucasefe.com.ar/_posts/2010-10-4-adding_custom_input_fields_to_simple_form.haml"></a></span>
+          </p>
+          <p>In a project I am using <a href="http://github.com/plataformatec/simple_form">Simple Form</a> from the guys of PlataformaTec as a Form Builder. At the beginning of the project, I decided to switch from formtastic to this one because I am big fan of what José Valim is doing. I really like his code, and I think that what he writes is always (as far as I know) extendible, usable, and of course, simple to use.</p>
+          <p>
+            So last week I needed to use a particular kind of input field. We needed to show a box like this one:
+          </p>
+          <p>
+            <img src="/images/subdomain.png" />
+          </p>
+          <p>Pretty self explanatory, right?</p>
+          <p>I wanted to be able to write something like this in my view files (in <a href="http://haml-lang.com/">HAML</a>):</p>
+          <div class="CodeRay">
+            <div class="code"><pre>= simple_form_for <span style="color:#A60">:organization</span> <span style="color:#080;font-weight:bold">do</span> |f|&#x000A;  <span style="color:#888"># ...</span>&#x000A;  =f.input <span style="color:#A60">:subdomain</span>, <span style="color:#A60">:as</span> =&gt; <span style="color:#A60">:subdomain</span>, <span style="color:#A60">:domain</span> =&gt; <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">'</span><span style="">foooo.com</span><span style="color:#710">'</span></span>&#x000A;</pre></div>
+          </div>
+          <p>So in order to achieve this, we only needed to add this to config/initializers/simple_form_extensions.rb (for example).</p>
+          <div class="CodeRay">
+            <div class="code"><pre><span style="color:#080;font-weight:bold">module</span> <span style="color:#B06;font-weight:bold">SimpleForm</span>&#x000A;  <span style="color:#080;font-weight:bold">module</span> <span style="color:#B06;font-weight:bold">Inputs</span>&#x000A;    <span style="color:#080;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">SubdomainInput</span> &lt; <span style="color:#036;font-weight:bold">Base</span>&#x000A;      <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">input</span>&#x000A;        <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">&quot;</span><span style="background:#ddd;color:black"><span style="background:#ddd;font-weight:bold;color:#666">#{</span>protocol<span style="background:#ddd;font-weight:bold;color:#666">}</span></span><span style="background:#ddd;color:black"><span style="background:#ddd;font-weight:bold;color:#666">#{</span><span style="color:#33B">@builder</span>.text_field(attribute_name, input_html_options)<span style="background:#ddd;font-weight:bold;color:#666">}</span></span><span style="">.</span><span style="background:#ddd;color:black"><span style="background:#ddd;font-weight:bold;color:#666">#{</span>domain<span style="background:#ddd;font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>&#x000A;      <span style="color:#080;font-weight:bold">end</span>&#x000A;      <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">domain</span>&#x000A;        input_options[<span style="color:#A60">:domain</span>]&#x000A;      <span style="color:#080;font-weight:bold">end</span>&#x000A;      <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">protocol</span>&#x000A;        input_options[<span style="color:#A60">:protocol</span>] || <span style="background-color:#fff0f0;color:#D20"><span style="color:#710">&quot;</span><span style="">http://</span><span style="color:#710">&quot;</span></span>&#x000A;      <span style="color:#080;font-weight:bold">end</span>&#x000A;    <span style="color:#080;font-weight:bold">end</span>&#x000A;  <span style="color:#080;font-weight:bold">end</span>&#x000A;<span style="color:#080;font-weight:bold">end</span>&#x000A;</pre></div>
+          </div>
+          <p>The key part here is to name the class properly, so when you do :as => :my_class, your MyClass gets called automatically.</p>
+          <p>Simple Form is very well structured, and provides lots of ways to customize its functionality. Check the <a href="http://github.com/plataformatec/simple_form/blob/master//README.rdoc">readme</a> file to see what you can do without having to create a custom input class like SubdomainInput. Also, you can check <a href="http://railscasts.com/episodes/234-simple-form">this week's railscasts</a>.</p>
+          <div id="older_and_newer">
+            <p>
+              <strong>Older:</strong>
+              <a href="/2010/09/25/themes-for-rails.html">Themes For Rails</a>
+            </p>
+          </div>
+          <div id="related_posts">
+            <h3>Related posts</h3>
+            <p>
+              <strong>04/10/2010</strong>
+              <a href="/2010/10/04/adding_custom_input_fields_to_simple_form.html">Adding Custom Input Fields to Simple Form</a>
+            </p>
+            <p>
+              <strong>06/03/2010</strong>
+              <a href="/2010/03/06/rails-y-ruby-1-9-en-espa-ol.html">Rails 2.3.x y Ruby 1.9, en espa&ntilde;ol</a>
+            </p>
+            <p>
+              <strong>27/04/2010</strong>
+              <a href="/2010/04/27/compass-rails-y-plugins.html">Cargando un diferentes frameworks en Compass cuando usamos Rails (2.3.5)</a>
+            </p>
+            <p>
+              <strong>22/04/2009</strong>
+              <a href="/2009/04/22/remarkable.html">Remarkable</a>
+            </p>
+            <p>
+              <strong>10/05/2010</strong>
+              <a href="/2010/05/10/rails3-autotest-rspec2-y-ruby-1-9-2.html">Rails 3, Autotest, Rspec2 y Ruby 1.9.2</a>
+            </p>
+            <p>
+              <strong>26/04/2010</strong>
+              <a href="/2010/04/26/base-generators.html">Base Generators</a>
+            </p>
+            <p>
+              <strong>22/09/2009</strong>
+              <a href="/2009/09/22/encuesta-sobre-ruby-argentina.html">Encuesta sobre Ruby en Argentina usando Google Forms</a>
+            </p>
+            <p>
+              <strong>05/04/2009</strong>
+              <a href="/2009/04/05/locosxrails-resolutions.html">LocosXRails Post Resolutions</a>
+            </p>
+            <p>
+              <strong>02/11/2009</strong>
+              <a href="/2009/11/02/faith-no-more-en-el-pepsi-2009.html">Faith No More en el Pepsi 2009</a>
+            </p>
+            <p>
+              <strong>04/10/2008</strong>
+              <a href="/2008/10/04/just-because.html">Just because...</a>
+            </p>
+            <p>
+              <strong>06/05/2009</strong>
+              <a href="/2009/05/06/debt.html">Debt</a>
+            </p>
+          </div>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            //<![CDATA[
+              var disqus_developer = location.host.match(/\.dev$|^localhost/) ? 1 : 0;
+            //]]>
+          </script>
+          <script type="text/javascript">
+            //<![CDATA[
+              $(function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = 'http://lucasefe.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            //]]>
+          </script>
+        </div>
+      </div>
+      <p id="footer">
+        Powered by
+        <a href="http://github.com/henrik/jekyll">Jekyll</a>
+        and
+        <a href="http://disqus.com">Disqus</a>
+        <a href="http://github.com/lucasefe/lucasefe.com.ar">View source</a>
+      </p>
+      <script type="text/javascript">
+        //<![CDATA[
+          // Google Analytics
+          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+          document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          
+          <script type="text/javascript">
+          var pageTracker = _gat._getTracker("UA-83541-8");
+          pageTracker._trackPageview();
+        //]]>
+      </script>
+    </div>
+  </body>
+</html>

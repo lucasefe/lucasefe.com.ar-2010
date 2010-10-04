@@ -4,13 +4,39 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-10-01T10:19:37-03:00</updated>
+ <updated>2010-10-04T13:14:05-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Adding Custom Input Fields to Simple Form</title>
+   <link href="http://www.lucasefe.com.ar/2010/10/04/adding_custom_input_fields_to_simple_form"/>
+   <updated>2010-10-04T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/10/04/adding_custom_input_fields_to_simple_form</id>
+   <content type="html">&lt;p&gt;In a project I am using &lt;a href="http://github.com/plataformatec/simple_form"&gt;Simple Form&lt;/a&gt; from the guys of PlataformaTec as a Form Builder. At the beginning of the project, I decided to switch from formtastic to this one because I am big fan of what José Valim is doing. I really like his code, and I think that what he writes is always (as far as I know) extendible, usable, and of course, simple to use.&lt;/p&gt;
+&lt;p&gt;
+  So last week I needed to use a particular kind of input field. We needed to show a box like this one:
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;img src="/images/subdomain.png" /&gt;
+&lt;/p&gt;
+&lt;p&gt;Pretty self explanatory, right?&lt;/p&gt;
+&lt;p&gt;I wanted to be able to write something like this in my view files (in &lt;a href="http://haml-lang.com/"&gt;HAML&lt;/a&gt;):&lt;/p&gt;
+&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;= simple_form_for &lt;span style="color:#A60"&gt;:organization&lt;/span&gt; &lt;span style="color:#080;font-weight:bold"&gt;do&lt;/span&gt; |f|&amp;#x000A;  &lt;span style="color:#888"&gt;# ...&lt;/span&gt;&amp;#x000A;  =f.input &lt;span style="color:#A60"&gt;:subdomain&lt;/span&gt;, &lt;span style="color:#A60"&gt;:as&lt;/span&gt; =&amp;gt; &lt;span style="color:#A60"&gt;:subdomain&lt;/span&gt;, &lt;span style="color:#A60"&gt;:domain&lt;/span&gt; =&amp;gt; &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style=""&gt;foooo.com&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So in order to achieve this, we only needed to add this to config/initializers/simple_form_extensions.rb (for example).&lt;/p&gt;
+&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;&lt;span style="color:#080;font-weight:bold"&gt;module&lt;/span&gt; &lt;span style="color:#B06;font-weight:bold"&gt;SimpleForm&lt;/span&gt;&amp;#x000A;  &lt;span style="color:#080;font-weight:bold"&gt;module&lt;/span&gt; &lt;span style="color:#B06;font-weight:bold"&gt;Inputs&lt;/span&gt;&amp;#x000A;    &lt;span style="color:#080;font-weight:bold"&gt;class&lt;/span&gt; &lt;span style="color:#B06;font-weight:bold"&gt;SubdomainInput&lt;/span&gt; &amp;lt; &lt;span style="color:#036;font-weight:bold"&gt;Base&lt;/span&gt;&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;def&lt;/span&gt; &lt;span style="color:#06B;font-weight:bold"&gt;input&lt;/span&gt;&amp;#x000A;        &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style="background:#ddd;color:black"&gt;&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;#{&lt;/span&gt;protocol&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span style="background:#ddd;color:black"&gt;&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;#{&lt;/span&gt;&lt;span style="color:#33B"&gt;@builder&lt;/span&gt;.text_field(attribute_name, input_html_options)&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span style=""&gt;.&lt;/span&gt;&lt;span style="background:#ddd;color:black"&gt;&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;#{&lt;/span&gt;domain&lt;span style="background:#ddd;font-weight:bold;color:#666"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;def&lt;/span&gt; &lt;span style="color:#06B;font-weight:bold"&gt;domain&lt;/span&gt;&amp;#x000A;        input_options[&lt;span style="color:#A60"&gt;:domain&lt;/span&gt;]&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;def&lt;/span&gt; &lt;span style="color:#06B;font-weight:bold"&gt;protocol&lt;/span&gt;&amp;#x000A;        input_options[&lt;span style="color:#A60"&gt;:protocol&lt;/span&gt;] || &lt;span style="background-color:#fff0f0;color:#D20"&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;span style=""&gt;http://&lt;/span&gt;&lt;span style="color:#710"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&amp;#x000A;      &lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;    &lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;  &lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&lt;span style="color:#080;font-weight:bold"&gt;end&lt;/span&gt;&amp;#x000A;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The key part here is to name the class properly, so when you do :as =&gt; :my_class, your MyClass gets called automatically.&lt;/p&gt;
+&lt;p&gt;Simple Form is very well structured, and provides lots of ways to customize its functionality. Check the &lt;a href="http://github.com/plataformatec/simple_form/blob/master//README.rdoc"&gt;readme&lt;/a&gt; file to see what you can do without having to create a custom input class like SubdomainInput. Also, you can check &lt;a href="http://railscasts.com/episodes/234-simple-form"&gt;this week's railscasts&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Themes For Rails</title>
@@ -398,18 +424,6 @@ Bis:
   &lt;li&gt;Ubika (http://myspace.com/ub1ka)&lt;/li&gt;
   &lt;li&gt;Decime Si Se Puede (http://www.myspace.com/decimesisepuede)&lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Finalmente, Justo al Caer tiene website</title>
-   <link href="http://www.lucasefe.com.ar/2009/07/25/finalmente-justo-al-caer-tiene-website"/>
-   <updated>2009-07-25T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/07/25/finalmente-justo-al-caer-tiene-website</id>
-   <content type="html">&lt;p&gt;Luego de mucho laburo, muchos idas y vueltas, logramos hacer un sitio para mi querido proyecto musical, &lt;a href="http://www.justoalcaer.com.ar/"&gt;Justo al Caer&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;All&amp;iacute; podr&amp;aacute;n conocer un poco de lo que hago cuando no soy programador Ruby, podr&amp;aacute;n ver fotos, leer sobre nuestros origenes y lo m&amp;aacute;s importante, escuchar un poco de lo que hacemos.&lt;/p&gt;
-&lt;p&gt;Debo confezar que es un placer terminar una etapa, aunque me d&amp;eacute; v&amp;eacute;rtigo iniciar una nueva. A tocar se ha dicho...&lt;/p&gt;
-&lt;p&gt;As&amp;iacute; que: &lt;a href="http://www.justoalcaer.com.ar/"&gt;Justo al Caer Website&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
