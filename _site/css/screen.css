@@ -4,17 +4,18 @@ body { background-color: white; background: url("/images/background-repeat.jpg")
 body #top-banner { float: left; font-size: 15px; height: 40px; left: 0px; padding: 5px; position: fixed; text-align: right; top: 0px; width: 100%; }
 body #top-banner .right-box { opacity: 0.4; -moz-opacity: 0.4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; background-color: black; border-bottom: solid 1px #e8f1ea; float: right; padding: 0.28em 0.49em; text-align: right; width: 6%; }
 body #top-banner .right-box img { margin-top: 5px; }
-body #top-banner .left-box { opacity: 0.4; -moz-opacity: 0.4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; background-color: black; border-bottom: solid 1px #e8f1ea; float: left; padding: 0.5em; text-align: left; width: 90%; }
+body #top-banner .left-box { opacity: 0.4; -moz-opacity: 0.4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; background-color: black; border-bottom: solid 1px #e8f1ea; float: left; padding: 0.5em; width: 90%; }
 body #top-banner .left-box .cv { padding-left: 35px; }
 body #top-banner .left-box .cv img { border: solid 1px black; margin-top: 7px; }
-body #top-banner .left-box .author { font: 22px "SpinCycleOTRegular", Arial, sans-serif; letter-spacing: 2px; margin-top: 2px; }
+body #top-banner .left-box .author { float: left; font-size: 1.2em; letter-spacing: 0.5px; margin-top: 2px; }
 body #top-banner .left-box .author a { color: #e8f1ea; text-decoration: none; }
 body #top-banner .left-box .author a:hover { color: #e8f1ea; text-decoration: underline; }
 body #top-banner .left-box .author a:visited { color: #dce4de; }
+body #top-banner .left-box .tagline { float: right; font-size: 0.8em; color: white; }
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
 
-h1 { line-height: 110%; font-size: 25px; font-family: "SpinCycleOTRegular", Helvetica, Arial, sans-serif; margin-bottom: 20px; }
+h1 { font-size: 25px; font-weight: normal; letter-spacing: 0.5px; line-height: 110%; margin-bottom: 20px; }
 h1 a { color: black; }
 h1 a:visited { color: black; }
 

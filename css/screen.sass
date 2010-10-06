@@ -50,7 +50,6 @@ body
   letter-spacing: 0.2px
   text-align: center
   padding: 60px 20px 0 20px
-
   #top-banner
     float: left
     font-size: 15px
@@ -75,7 +74,6 @@ body
       @include gray-box
       float: left
       padding: 0.5em
-      text-align: left
       width: 90%
 
       .cv
@@ -84,8 +82,9 @@ body
           border: solid 1px #000  
           margin-top: 7px
       .author
-        font: 22px 'SpinCycleOTRegular', Arial, sans-serif
-        letter-spacing: 2px
+        float: left
+        font-size: 1.2em
+        letter-spacing: 0.5px
         margin-top: 2px
         a
           color: #E8F1EA
@@ -95,14 +94,19 @@ body
             text-decoration: underline
           &:visited
             color: #DCE4DE
-
+      .tagline
+        float: right
+        font-size: 0.8em
+        color: white
 h1, h2, h3, h4, h5, h6
   font-size: 100%
 h1
-  line-height: 110%
   font-size: 25px
-  font-family: 'SpinCycleOTRegular', Helvetica, Arial, sans-serif
+  font-weight: normal
+  letter-spacing: 0.5px
+  line-height: 110%
   margin-bottom: 20px
+  
   a
     color: #000
     &:visited
