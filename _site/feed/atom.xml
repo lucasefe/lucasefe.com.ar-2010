@@ -4,13 +4,33 @@
  <title>Lucas Efe's Blog</title>
  <link href="http://www.lucasefe.com.ar/atom.xml" rel="self"/>
  <link href="http://www.lucasefe.com.ar/"/>
- <updated>2010-10-06T09:53:01-03:00</updated>
+ <updated>2010-11-22T11:47:03-03:00</updated>
  <id>http://www.lucasefe.com.ar/</id>
  <author>
    <name>Lucas Efe</name>
    <email>lucasefek@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Acts As Rubylit 2010 - Gracias</title>
+   <link href="http://www.lucasefe.com.ar/2010/11/22/acts_as_rubylit_2010"/>
+   <updated>2010-11-22T00:00:00-03:00</updated>
+   <id>http://www.lucasefe.com.ar/2010/11/22/acts_as_rubylit_2010</id>
+   <content type="html">&lt;p&gt;
+  Este fin de semana se realiz&amp;oacute; la Acts As Rubylit 2010 en la provincia de Santa Fe, Argentina.
+&lt;/p&gt;
+&lt;p&gt;
+  Fueron dos d&amp;iacute;as de charlas muy interesantes, de compartir un mont&amp;oacute;n de an&amp;eacute;cdotas con otros compa&amp;ntilde;eros rubistas y de mucho m&amp;aacute;s.
+  A pesar del viaje (que no me copaba mucho) debo decir que la pas&amp;eacute; m&amp;aacute;s que bien gracias a la hospitalidad y el buen trato de los organizadores. Se not&amp;oacute; el esfuerzo que hicieron, y es importante que sepan que se aprecia y agradece mucho.
+&lt;/p&gt;
+&lt;p&gt;
+  Hacen falta m&amp;aacute;s eventos como estos (no hace falta decirlo, verdad?). Quiz&amp;aacute;s con esta nueva lista podamos darle el nuevo empuj&amp;oacute;n que anda necesitando.
+&lt;/p&gt;
+&lt;p&gt;Fue un placer asistir y conocer a cada uno de los participantes.&lt;/p&gt;
+&lt;p&gt;Hasta el año que viene, muchachos.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Adding Custom Input Fields to Simple Form</title>
@@ -411,19 +431,6 @@ Bis:
 &lt;/ul&gt;
 &lt;p&gt;Espero que les sirva y provea de informaci&amp;oacute;n &amp;uacute;til para hacer crecer a Ruby en Argentina.&lt;/p&gt;
 &lt;p&gt;Y recuerden: Si usan Google Forms, verifiquen una y mil veces con casos de prueba si est&amp;aacute;n obteniendo el resultado gr&amp;aacute;fico que esperaban.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Bandas en el Bord&oacute;</title>
-   <link href="http://www.lucasefe.com.ar/2009/08/16/bandas-en-el-bord"/>
-   <updated>2009-08-16T00:00:00-03:00</updated>
-   <id>http://www.lucasefe.com.ar/2009/08/16/bandas-en-el-bord</id>
-   <content type="html">&lt;p&gt;El viernes pasado fui a ver dos muy buenas bandas que no dudo en recomendar...&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ubika (http://myspace.com/ub1ka)&lt;/li&gt;
-  &lt;li&gt;Decime Si Se Puede (http://www.myspace.com/decimesisepuede)&lt;/li&gt;
-&lt;/ul&gt;
 </content>
  </entry>
  
